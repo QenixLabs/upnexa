@@ -16,16 +16,16 @@ export function Footer() {
   return (
     <footer className="bg-primary text-black">
       {/* Footer Marquee */}
-      <div className="py-8 border-b-2 border-black">
+      <div className="py-8 border-b-2 border-black overflow-hidden">
         <Marquee speed={60} gradient={false} autoFill>
-          <span className="text-[4rem] md:text-[8rem] font-bold uppercase tracking-tighter mx-4">
+          <span className="text-[2rem] md:text-[4rem] lg:text-[6rem] font-bold uppercase tracking-tighter mx-2 md:mx-4">
             LET'S BUILD SOMETHING GREAT
           </span>
-          <span className="text-[4rem] md:text-[8rem] mx-4">★</span>
+          <span className="text-[2rem] md:text-[4rem] lg:text-[6rem] mx-2 md:mx-4">★</span>
         </Marquee>
       </div>
 
-      <div className="max-w-[95vw] mx-auto px-4 md:px-8 py-12 md:py-16">
+      <div className="max-w-7xl xl:max-w-7xl 2xl:max-w-6xl mx-auto px-4 md:px-8 py-12 md:py-16">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <motion.div
