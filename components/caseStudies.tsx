@@ -5,6 +5,18 @@ import { motion } from "framer-motion"
 const caseStudies = [
   {
     number: "01",
+    title: "VULSPHERE",
+    subtitle: "Vulnerability Lifecycle Management System",
+    challenge: "Enterprise security teams struggling to orchestrate the complete vulnerability remediation loop—from asset discovery and scanning to multi-stage approvals and confirmatory retesting across the organization.",
+    metrics: [
+      { value: "END-TO-END", label: "LIFECYCLE" },
+      { value: "4-LEVEL", label: "APPROVAL FLOW" },
+      { value: "NESSUS", label: "INTEGRATION" },
+    ],
+    tech: "Next.js, NestJS, MongoDB, PDFMake",
+  },
+  {
+    number: "02",
     title: "AI AUDIT REPORTS",
     subtitle: "AI Agent Automation (PROVEN)",
     challenge: "Audit teams spending 6 hours per report analyzing data, structuring findings, and generating documents manually. AI agents trained on audit framework now handle the repetitive work.",
@@ -17,7 +29,7 @@ const caseStudies = [
     isAI: true,
   },
   {
-    number: "02",
+    number: "03",
     title: "CLIENT MANAGEMENT SYSTEM",
     subtitle: "Operational Software Platform",
     challenge: "Operations team drowning in Excel. Manual data entry, no visibility, constant errors, lost revenue from missed renewals.",
@@ -29,7 +41,7 @@ const caseStudies = [
     tech: "Next.js, NestJS, MongoDB, Redis",
   },
   {
-    number: "03",
+    number: "04",
     title: "AI CUSTOMER SUPPORT",
     subtitle: "Example Use Case",
     challenge: "Customer service teams overwhelmed by repetitive tickets. AI agents trained on your knowledge base handle 80% of routine inquiries—password resets, order status, troubleshooting—while humans focus on complex issues.",
@@ -42,7 +54,7 @@ const caseStudies = [
     isAI: true,
   },
   {
-    number: "04",
+    number: "05",
     title: "CREATOR TOOLKIT",
     subtitle: "Complete SaaS Platform",
     challenge: "Content creators spending 20+ hours/week on production (thumbnails, editing, voice-overs, metadata).",
@@ -54,7 +66,7 @@ const caseStudies = [
     tech: "Next.js, Node.js, AWS, OpenAI",
   },
   {
-    number: "05",
+    number: "06",
     title: "AI BUSINESS INTELLIGENCE",
     subtitle: "Example Use Case",
     challenge: "Business intelligence delayed by manual reporting. AI analyzes data trends, surfaces anomalies, and generates insights in real-time. Decisions based on current data, not last week's spreadsheet.",
@@ -63,11 +75,11 @@ const caseStudies = [
       { value: "0", label: "MANUAL WORK" },
       { value: "100%", label: "DATA VISIBILITY" },
     ],
-    tech: "OpenAI, PostgreSQL, Next.js",
+    tech: "OpenAI, MongoDB, Next.js",
     isAI: true,
   },
   {
-    number: "06",
+    number: "07",
     title: "EDUCATION APP",
     subtitle: "Mobile + Custom CMS",
     challenge: "Static website couldn't showcase dynamic campus life. Non-technical staff needed content control.",
@@ -79,7 +91,7 @@ const caseStudies = [
     tech: "React Native, Expo, NestJS, AWS",
   },
   {
-    number: "07",
+    number: "08",
     title: "AI CONTENT OPERATIONS",
     subtitle: "Example Use Case",
     challenge: "Can't produce content fast enough? AI-assisted workflows scale output 5x without headcount. AI drafts first drafts, humans refine strategy and brand voice.",
@@ -92,7 +104,7 @@ const caseStudies = [
     isAI: true,
   },
   {
-    number: "08",
+    number: "09",
     title: "ENTERPRISE LMS",
     subtitle: "Learning Management Platform",
     challenge: "Generic LMS platforms built for universities. Enterprise needed purpose-built system for their teaching model.",
@@ -101,10 +113,10 @@ const caseStudies = [
       { value: "CUSTOM", label: "WORKFLOW" },
       { value: "ZERO", label: "VENDOR LOCK" },
     ],
-    tech: "Next.js, NestJS, PostgreSQL, Redis",
+    tech: "Next.js, NestJS, MongoDB, Redis",
   },
   {
-    number: "09",
+    number: "10",
     title: "SCALABLE INFRASTRUCTURE",
     subtitle: "Cloud & DevOps Implementation",
     challenge: "Application buckling under growth. Slow load times, frequent crashes, no clear path to scale from 1K to 1M users.",
@@ -149,7 +161,7 @@ export function CaseStudiesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className={`group bg-[#09090B] p-6 md:p-8 lg:p-12 hover:bg-primary transition-colors duration-300 ${study.isAI ? 'ring-1 ring-primary/50' : ''}`}
+              className={`group bg-[#09090B] p-6 md:p-8 lg:p-12 hover:bg-primary transition-colors duration-300 h-full flex flex-col ${study.isAI ? 'ring-1 ring-primary/50' : ''}`}
             >
               {/* Header */}
               <div className="flex items-start gap-3 md:gap-4 lg:gap-6 mb-4 md:mb-6 lg:mb-8">
@@ -193,7 +205,7 @@ export function CaseStudiesSection() {
               </div>
 
               {/* Tech Stack */}
-              <div className="pt-4 md:pt-6 border-t-2 border-[#3F3F46] group-hover:border-black/20 transition-colors duration-300">
+              <div className="pt-4 md:pt-6 border-t-2 border-[#3F3F46] group-hover:border-black/20 transition-colors duration-300 mt-auto">
                 <span className="text-xs font-bold text-[#A1A1AA] group-hover:text-black/60 uppercase tracking-widest transition-colors duration-300">
                   STACK:
                 </span>

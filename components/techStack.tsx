@@ -6,7 +6,7 @@ const techItems = [
   // AI & Automation (Lead section)
   "OPENAI",
   "ANTHROPIC",
-  "LANGCHAIN",
+  "Mastra AI",
   "LANGGRAPH",
   // Core Engineering
   "NEXT.JS",
@@ -17,7 +17,6 @@ const techItems = [
   "NODE.JS",
   // Data & Infrastructure
   "MONGODB",
-  "POSTGRESQL",
   "REDIS",
   "AWS",
   "DOCKER",

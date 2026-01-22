@@ -15,7 +15,6 @@ const services = [
     ],
     example:
       "AI analytics layer reduced report generation from 6 hours to 8 minutes. Teams shifted from data entry to strategic analysis.",
-    tech: "OpenAI, Anthropic, LangChain, LangGraph",
   },
   {
     number: "02",
@@ -23,13 +22,12 @@ const services = [
     tagline: "From Idea to Market in 8–16 Weeks. AI-Accelerated Where It Matters.",
     features: [
       "Complete product discovery and strategy",
-      "Full-stack development: React/Next.js frontend, Node.js backend",
+      "Full-stack development with modern frontend and backend",
       "AI-powered features for competitive advantage",
-      "AWS infrastructure with security and scalability",
+      "Cloud infrastructure with security and scalability",
     ],
     example:
       "Built complete SaaS platform from scratch. Production-ready with clean architecture, proper scalability, and ongoing support—not just a hand-off.",
-    tech: "Next.js, Node.js, PostgreSQL, AWS, Redis",
   },
   {
     number: "03",
@@ -43,7 +41,6 @@ const services = [
     ],
     example:
       "Replaced 7 Excel files with unified client management platform. 15 hours/week saved, automated reminders, real-time operations visibility.",
-    tech: "Next.js, NestJS, MongoDB, Redis, AWS",
   },
   {
     number: "04",
@@ -56,7 +53,6 @@ const services = [
       "Full admin dashboard for content management",
     ],
     example: "Education platform with custom CMS. 10,000+ users, 67% push notification open rate, native performance.",
-    tech: "React Native, Expo, NestJS, AWS",
   },
   {
     number: "05",
@@ -70,7 +66,6 @@ const services = [
     ],
     example:
       "Custom CMS platform matching exact workflow. Educational content management with scalable architecture and zero vendor lock-in.",
-    tech: "Next.js, NestJS, PostgreSQL, AWS S3",
   },
   {
     number: "06",
@@ -84,21 +79,19 @@ const services = [
     ],
     example:
       "Enterprise LMS purpose-built for specific teaching model. You own the platform—no vendor dependency or university-focused constraints.",
-    tech: "Next.js, NestJS, PostgreSQL, Redis, AWS",
   },
   {
     number: "07",
     title: "CLOUD INFRASTRUCTURE & DEVOPS",
     tagline: "Enterprise Infrastructure. AI-Optimized for Cost & Performance.",
     features: [
-      "AWS cloud architecture design and implementation",
+      "Cloud architecture design and implementation",
       "AI-powered monitoring and auto-scaling",
       "CI/CD automation for seamless deployments",
       "Security hardening and compliance",
     ],
     example:
       "Production-ready infrastructure handling millions of users. Secure, scalable, with automated deployment pipelines.",
-    tech: "AWS, Docker, Kubernetes, Terraform, GitHub Actions",
   },
   {
     number: "08",
@@ -112,7 +105,6 @@ const services = [
     ],
     example:
       "Strategic planning that turned vague ideas into shipped products. Architectural decisions preventing expensive rewrites.",
-    tech: "System Design, Architecture, AWS, Agile Methodology",
   },
 ]
 
@@ -183,21 +175,12 @@ export function ServicesSection() {
 
                     {/* Right Column */}
                     <div className="lg:border-l-2 lg:border-[#3F3F46] lg:group-hover:border-black/20 lg:pl-0 lg:pl-16 pt-6 lg:pt-0 border-t-2 border-[#3F3F46] lg:border-t-0 transition-colors duration-300">
-                      <div className="mb-6 md:mb-8">
+                      <div>
                         <span className="text-xs font-bold text-primary group-hover:text-black uppercase tracking-widest transition-colors duration-300">
                           REAL EXAMPLE
                         </span>
                         <p className="text-base md:text-lg lg:text-xl text-[#FAFAFA] group-hover:text-black mt-2 leading-tight transition-colors duration-300">
                           {service.example}
-                        </p>
-                      </div>
-
-                      <div className="pt-4 md:pt-6 border-t-2 border-[#3F3F46] group-hover:border-black/20 transition-colors duration-300">
-                        <span className="text-xs font-bold text-[#A1A1AA] group-hover:text-black/60 uppercase tracking-widest transition-colors duration-300">
-                          TECH STACK
-                        </span>
-                        <p className="text-xs md:text-sm font-mono text-[#FAFAFA] group-hover:text-black mt-2 transition-colors duration-300 break-words">
-                          {service.tech}
                         </p>
                       </div>
                     </div>

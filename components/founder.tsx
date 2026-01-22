@@ -13,25 +13,25 @@ export function FounderSection() {
   return (
     <section id="about" className="py-20 md:py-32 border-b-2 border-[#3F3F46]">
       <div className="max-w-7xl xl:max-w-7xl 2xl:max-w-6xl mx-auto px-4 md:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center ">
           {/* Image Side */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="relative "
           >
-            <div className="aspect-square border-2 border-[#3F3F46] overflow-hidden">
+            <div className="aspect-square border-2 border-[#3F3F46] rounded-t-[100px] overflow-hidden">
               <img
-                src="/professional-male-developer-portrait-dark-backgrou.jpg"
+                src="/photo.png"
                 alt="Founder - Full Stack Developer"
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
               />
             </div>
             {/* Floating Badge */}
             <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 lg:-right-12 p-4 md:p-6 bg-primary text-black">
-              <div className="text-4xl md:text-5xl font-bold tracking-tighter">3+</div>
+              <div className="text-4xl md:text-5xl font-bold tracking-tighter">5+</div>
               <div className="text-sm font-bold uppercase tracking-widest">YEARS</div>
             </div>
           </motion.div>
@@ -49,8 +49,8 @@ export function FounderSection() {
             </h2>
 
             <p className="text-lg md:text-xl text-[#A1A1AA] mb-8 leading-tight">
-              Full Stack Developer & AI Integrator. I've spent 3+ years building software that solves actual business
-              problems. Engineers who understand AI, not hype. Real implementation experience with OpenAI, Anthropic, LangChain.
+              Full Stack Developer & AI Integrator. I've spent 5+ years building software that solves actual business
+              problems. Engineers who understand AI, not hype. Real implementation experience with OpenAI, Anthropic, Mastra, LangGraph.
               We know what AI can do—and what it can't.
             </p>
 
