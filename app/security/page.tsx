@@ -14,12 +14,27 @@ export const metadata: Metadata = {
     "NDA",
     "enterprise security",
     "application security",
+    "software development security practices",
   ],
   openGraph: {
     title: "Security & Compliance | QENIXLABS",
     description: "Enterprise-grade security practices. GDPR-compliant data handling. NDA-protected engagements.",
     type: "website",
     url: "https://qenixlabs.com/security",
+    images: [
+      {
+        url: "https://qenixlabs.com/og.png",
+        width: 1200,
+        height: 630,
+        alt: "QENIXLABS - Enterprise Security & Compliance",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Security & Compliance | QENIXLABS",
+    description: "Enterprise-grade security practices. GDPR-compliant data handling. NDA-protected engagements.",
+    images: ["https://qenixlabs.com/og.png"],
   },
   alternates: {
     canonical: "/security",

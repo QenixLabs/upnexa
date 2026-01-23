@@ -96,7 +96,7 @@ export function TeamSection() {
 
             {/* LinkedIn Link */}
             <motion.a
-              href="https://linkedin.com"
+              href="https://linkedin.com/in/jaiswarnilesh/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 mt-8 text-lg md:text-xl font-bold text-[#FAFAFA] hover:text-primary transition-colors"

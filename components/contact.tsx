@@ -50,6 +50,15 @@ export function ContactSection() {
               </div>
               <div className="flex items-center gap-3 md:gap-4">
                 <span className="text-primary text-xl md:text-2xl flex-shrink-0">→</span>
+                <a
+                  href="tel:+917715969989"
+                  className="text-base md:text-xl lg:text-2xl font-bold text-[#FAFAFA] hover:text-primary transition-colors uppercase tracking-tighter"
+                >
+                  +91-7715969989
+                </a>
+              </div>
+              <div className="flex items-center gap-3 md:gap-4">
+                <span className="text-primary text-xl md:text-2xl flex-shrink-0">→</span>
                 <span className="text-base md:text-xl lg:text-2xl font-bold text-[#FAFAFA] uppercase tracking-tighter">
                   MUMBAI, INDIA
                 </span>

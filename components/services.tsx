@@ -57,9 +57,35 @@ const services = [
   },
 ]
 
+// Service Structured Data for SEO
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: services.map((service, index) => ({
+    "@type": "Service",
+    position: index + 1,
+    name: service.title,
+    description: `${service.tagline} ${service.example}`,
+    provider: {
+      "@type": "Organization",
+      name: "QenixLabs",
+      url: "https://qenixlabs.com",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "India",
+    },
+  })),
+}
+
 export function ServicesSection() {
   return (
     <section id="services" className="py-20 md:py-32 border-b-2 border-[#3F3F46]">
+      {/* Service Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <div className="max-w-7xl xl:max-w-7xl 2xl:max-w-6xl mx-auto px-4 md:px-8">
         {/* Section Header */}
         <motion.div

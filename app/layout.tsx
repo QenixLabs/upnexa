@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono"
 export const metadata: Metadata = {
   title: "QENIXLABS | WE BUILD SOFTWARE THAT WORKS",
   description:
-    "Enterprise platforms that eliminate chaos. AI agents that automate the boring stuff. Custom systems built for YOUR workflow.",
+    "Enterprise platforms that eliminate chaos. AI agents that automate the boring stuff. Custom systems built for YOUR workflow. Custom software development company in Mumbai, India.",
   generator: "v0.app",
   keywords: [
     "software development",
@@ -23,6 +23,10 @@ export const metadata: Metadata = {
     "custom software",
     "web development",
     "mobile apps",
+    "custom software development Mumbai",
+    "AI automation agency India",
+    "enterprise software development company",
+    "software outsourcing India",
   ],
   authors: [{ name: "QenixLabs" }],
   metadataBase: new URL("https://qenixlabs.com"),
@@ -36,12 +40,21 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://qenixlabs.com",
     siteName: "QenixLabs",
+    images: [
+      {
+        url: "https://qenixlabs.com/og.png",
+        width: 1200,
+        height: 630,
+        alt: "QENIXLABS - Custom Software Development & AI Automation",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "QENIXLABS | WE BUILD SOFTWARE THAT WORKS",
     description:
       "Enterprise platforms that eliminate chaos. AI agents that automate the boring stuff. Custom systems built for YOUR workflow.",
+    images: ["https://qenixlabs.com/og.png"],
   },
   robots: {
     index: true,
@@ -62,6 +75,7 @@ export default function RootLayout({
     url: "https://qenixlabs.com",
     logo: "https://qenixlabs.com/logo.png",
     email: "info@qenixlabs.com",
+    telephone: "+91-7715969989",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Mumbai",
@@ -73,9 +87,14 @@ export default function RootLayout({
     ],
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+91-",
+      telephone: "+91-7715969989",
       contactType: "sales",
       email: "info@qenixlabs.com",
+      availableLanguage: "English",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "India",
     },
   }
 

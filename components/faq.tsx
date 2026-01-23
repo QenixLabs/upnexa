@@ -39,11 +39,30 @@ const faqs = [
   },
 ]
 
+// FAQ Structured Data for SEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+}
+
 export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
     <section className="py-20 md:py-32 border-b-2 border-[#3F3F46]">
+      {/* FAQ Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="max-w-4xl mx-auto px-4 md:px-8">
         {/* Section Header */}
         <motion.div
