@@ -42,10 +42,10 @@ export function ContactSection() {
               <div className="flex items-center gap-3 md:gap-4">
                 <span className="text-primary text-xl md:text-2xl flex-shrink-0">→</span>
                 <a
-                  href="mailto:hello@aurelius.engineering"
+                  href="mailto:info@qenixlabs.com"
                   className="text-base md:text-xl lg:text-2xl font-bold text-[#FAFAFA] hover:text-primary transition-colors uppercase tracking-tighter break-all"
                 >
-                  HELLO@AURELIUS.ENGINEERING
+                  INFO@QENIXLABS.COM
                 </a>
               </div>
               <div className="flex items-center gap-3 md:gap-4">

@@ -28,16 +28,28 @@ const benefits = [
       "Every line becomes yours. Full repository access. Complete documentation. No licensing fees. You own the AI models too.",
   },
   {
+    title: "WEEKLY MILESTONE DEMOS",
+    subtitle: "See progress live.",
+    description:
+      "Bi-weekly demos of working features. See your software being built. No black boxes—full transparency into our development process.",
+  },
+  {
+    title: "30-DAY BUG FIX GUARANTEE",
+    subtitle: "We stand behind our code.",
+    description:
+      "Post-launch support included. We fix any bugs found within 30 days at no cost. Optional AMC for ongoing support.",
+  },
+  {
     title: "WE KNOW WHEN AI HELPS",
     subtitle: "Honest about limitations.",
     description:
       "We won't sell you AI when you need a simple database. AI where it delivers ROI, traditional software where it doesn't. Brutal honesty.",
   },
   {
-    title: "REAL SUPPORT",
-    subtitle: "We don't ghost after deployment.",
+    title: "SELECTIVE PROJECT INTAKE",
+    subtitle: "3-4 new projects per quarter.",
     description:
-      "30 days post-launch support included. Optional AMC. Under 24-hour response time. Real humans, not ticket systems.",
+      "We take on limited engagements to ensure quality delivery. This means full attention on your project, not spreading ourselves thin.",
   },
 ]
 

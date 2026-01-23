@@ -6,9 +6,10 @@ import Marquee from "react-fast-marquee"
 
 const footerLinks = [
   { href: "#services", label: "SERVICES" },
-  { href: "#process", label: "PROCESS" },
   { href: "#work", label: "WORK" },
-  { href: "#about", label: "ABOUT" },
+  { href: "#team", label: "TEAM" },
+  { href: "#clients", label: "CLIENTS" },
+  { href: "/security", label: "SECURITY" },
   { href: "#contact", label: "CONTACT" },
 ]
 
@@ -36,11 +37,12 @@ export function Footer() {
           >
             <a href="#" className="flex items-center gap-3 mb-6">
               <Image
-                src="/logo-reverse.png"
-                alt="Aurelius"
+                src="/logo-black.png"
+                alt="QenixLabs - Custom Software Development"
                 width={180}
                 height={80}
-                className="object-contain"
+                className="object-contain rounded"
+                sizes="(max-width: 768px) 140px, 180px"
               />
             </a>
             <p className="text-black/70 text-base max-w-xs">
@@ -80,7 +82,7 @@ export function Footer() {
             <h3 className="font-bold text-lg uppercase tracking-wider mb-6">CONNECT</h3>
             <div className="space-y-3">
               <a
-                href="mailto:hello@aurelius.engineering"
+                href="mailto:info@qenixlabs.com"
                 className="block text-base font-bold uppercase tracking-wider text-black/70 hover:text-black transition-colors"
               >
                 EMAIL
@@ -108,7 +110,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t-2 border-black flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm font-bold uppercase tracking-wider text-black/70">
-            © 2026 AURELIUS ENGINEERING. BUILT FOR RESULTS.
+            © 2026 QENIXLABS. BUILT FOR RESULTS.
           </p>
         </div>
       </div>

@@ -40,9 +40,9 @@ export function HeroSection() {
           >
             WE BUILD
             <br />
-            <span className="text-primary">SOFTWARE</span>
+            <span className="text-primary">OPERATIONAL</span>
             <br />
-            THAT WORKS
+            PLATFORMS
           </motion.h1>
 
           {/* Subheadline */}
@@ -52,7 +52,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl lg:text-2xl text-[#A1A1AA] max-w-3xl mb-8 leading-tight"
           >
-            Custom software built by engineers. Powered by AI where it delivers real ROI.
+            AI automation cutting reporting from 6 hours to 8 minutes. Custom platforms managing ₹50Cr+ revenue.
           </motion.p>
 
           {/* Supporting copy with metrics */}
@@ -63,21 +63,31 @@ export function HeroSection() {
             className="text-base md:text-lg text-[#71717A] max-w-3xl mb-12 leading-relaxed"
           >
             <p className="mb-4">
-              We don't chase AI hype. We build custom software and integrate AI only where it measurably improves efficiency.
+              We build operational platforms that scale. AI where it delivers ROI, custom software where it matters.
             </p>
             <p className="mb-4">
-              <span className="text-primary font-semibold">AI agents that cut reporting from 6 hours to 8 minutes.</span> Custom dashboards that replace Excel chaos. Operational tools that scale without headcount.
+              <span className="text-primary font-semibold">Cut reporting by 97%.</span> Replace Excel chaos with unified systems. Scale without adding headcount.
             </p>
             <p>
               Fixed scope. Fixed price. You own everything. No salespeople, just engineers.
             </p>
           </motion.div>
 
+          {/* Momentum Signal */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-sm text-[#71717A] max-w-3xl mb-8 italic"
+          >
+            Building the future of AI-powered business software.
+          </motion.p>
+
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
             className="flex flex-col sm:flex-row gap-4"
           >
             <motion.a

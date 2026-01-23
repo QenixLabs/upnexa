@@ -8,12 +8,17 @@ const faqs = [
   {
     question: "DO YOU WORK WITH STARTUPS?",
     answer:
-      "Yes, if you have real budget and realistic expectations. I don't do 'MVP in 2 weeks for ₹50K' projects—that sets everyone up for failure.",
+      "Yes, if you have real budget and realistic expectations. We don't do 'MVP in 2 weeks for ₹50K' projects—that sets everyone up for failure.",
+  },
+  {
+    question: "WHAT'S YOUR MINIMUM ENGAGEMENT?",
+    answer:
+      "₹3-5L minimum for new projects. This ensures we can deliver proper attention and outcomes. For exploratory work, our technical consultation is ₹15K.",
   },
   {
     question: "CAN I SEE YOUR CODE?",
     answer:
-      "Client code is confidential, but I can share architecture decisions and technical approaches during our call. Past clients can speak to code quality.",
+      "Client code is confidential, but we can share architecture decisions and technical approaches during our call. Past clients can speak to code quality.",
   },
   {
     question: "WHAT IF I NEED CHANGES AFTER LAUNCH?",
@@ -21,16 +26,16 @@ const faqs = [
   },
   {
     question: "DO YOU SIGN NDAS?",
-    answer: "Absolutely. I sign NDAs and confidentiality agreements as standard practice.",
+    answer: "Absolutely. We sign NDAs and confidentiality agreements as standard practice.",
   },
   {
     question: "WHY CHOOSE YOU OVER A BIGGER AGENCY?",
     answer:
-      "You're working directly with the person who writes the code. No account managers, no junior devs, no outsourcing. Just direct communication with someone who knows what they're doing.",
+      "You're working directly with the people who write the code. No account managers, no junior devs, no outsourcing. Just direct communication with engineers who know what they're doing.",
   },
   {
     question: "CAN YOU PROVIDE REFERENCES?",
-    answer: "Yes. I'll connect you with past clients who'll tell you exactly what working with me is like.",
+    answer: "Yes. We'll connect you with past clients who'll tell you exactly what working with us is like.",
   },
 ]
 

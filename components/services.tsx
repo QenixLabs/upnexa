@@ -5,103 +5,52 @@ import { motion } from "framer-motion"
 const services = [
   {
     number: "01",
-    title: "AI AGENTS & WORKFLOW AUTOMATION",
+    title: "AI AUTOMATION & AGENTS",
     tagline: "Automate High-Value Work. 97% Time Reduction Proven.",
     features: [
       "AI agents trained on YOUR specific business data",
       "Document analysis and intelligent processing",
       "Multi-agent orchestration for complex workflows",
-      "Conversational interfaces that feel natural",
+      "Customer support, content operations, business intelligence",
     ],
     example:
       "AI analytics layer reduced report generation from 6 hours to 8 minutes. Teams shifted from data entry to strategic analysis.",
   },
   {
     number: "02",
-    title: "CUSTOM SAAS & PRODUCT DEVELOPMENT",
-    tagline: "From Idea to Market in 8–16 Weeks. AI-Accelerated Where It Matters.",
+    title: "CUSTOM SOFTWARE PLATFORMS",
+    tagline: "From Idea to Market in 8–16 Weeks. Production-Ready.",
     features: [
       "Complete product discovery and strategy",
-      "Full-stack development with modern frontend and backend",
-      "AI-powered features for competitive advantage",
-      "Cloud infrastructure with security and scalability",
-    ],
-    example:
-      "Built complete SaaS platform from scratch. Production-ready with clean architecture, proper scalability, and ongoing support—not just a hand-off.",
-  },
-  {
-    number: "03",
-    title: "OPERATIONAL SOFTWARE & INTERNAL TOOLS",
-    tagline: "Replace Excel. Add AI Intelligence. Real-Time Visibility.",
-    features: [
-      "Centralized workflows replacing fragmented systems",
-      "AI-powered insights and automation layer",
-      "Real-time dashboards and business intelligence",
-      "Custom-built without bloat or licensing costs",
+      "SaaS platforms, operational tools, internal systems",
+      "Mobile apps (iOS & Android) with custom backends",
+      "Custom CMS & LMS platforms built for your workflow",
     ],
     example:
       "Replaced 7 Excel files with unified client management platform. 15 hours/week saved, automated reminders, real-time operations visibility.",
   },
   {
-    number: "04",
-    title: "MOBILE APP DEVELOPMENT",
-    tagline: "Full-Featured Mobile Apps. AI-Enhanced User Experiences.",
-    features: [
-      "Native iOS and Android applications",
-      "On-device AI capabilities where appropriate",
-      "Custom backend systems with real-time features",
-      "Full admin dashboard for content management",
-    ],
-    example: "Education platform with custom CMS. 10,000+ users, 67% push notification open rate, native performance.",
-  },
-  {
-    number: "05",
-    title: "CUSTOM CMS & CONTENT MANAGEMENT",
-    tagline: "Manage Content Without Code. AI-Assisted Creation at Scale.",
-    features: [
-      "Purpose-built for YOUR content structure",
-      "AI content suggestions and workflow assistance",
-      "Non-technical team can manage content",
-      "Multi-tenant platform support",
-    ],
-    example:
-      "Custom CMS platform matching exact workflow. Educational content management with scalable architecture and zero vendor lock-in.",
-  },
-  {
-    number: "06",
-    title: "LEARNING MANAGEMENT SYSTEMS (LMS)",
-    tagline: "Build Your Academy. AI-Personalized Learning Paths.",
-    features: [
-      "Complete course builder for instructors",
-      "AI-driven course recommendations and assessment",
-      "Student dashboard with progress tracking",
-      "Admin platform for insights and management",
-    ],
-    example:
-      "Enterprise LMS purpose-built for specific teaching model. You own the platform—no vendor dependency or university-focused constraints.",
-  },
-  {
-    number: "07",
-    title: "CLOUD INFRASTRUCTURE & DEVOPS",
-    tagline: "Enterprise Infrastructure. AI-Optimized for Cost & Performance.",
+    number: "03",
+    title: "INFRASTRUCTURE & DEVOPS",
+    tagline: "Enterprise Infrastructure. Cloud-Native & Scalable.",
     features: [
       "Cloud architecture design and implementation",
-      "AI-powered monitoring and auto-scaling",
       "CI/CD automation for seamless deployments",
-      "Security hardening and compliance",
+      "Monitoring, auto-scaling, and security hardening",
+      "Infrastructure handling millions of users",
     ],
     example:
-      "Production-ready infrastructure handling millions of users. Secure, scalable, with automated deployment pipelines.",
+      "Production-ready infrastructure with 99.9% uptime. 70% cost reduction through optimization. Scalable from 1K to 1M users.",
   },
   {
-    number: "08",
-    title: "STRATEGY & TECHNICAL CONSULTING",
-    tagline: "Bridge Vision and Reality. AI Readiness Assessment Included.",
+    number: "04",
+    title: "STRATEGIC CONSULTING",
+    tagline: "Bridge Vision and Reality. Technical Architecture.",
     features: [
       "Product vision aligned with technical reality",
-      "Identify high-ROI AI opportunities for your business",
+      "Identify high-ROI automation opportunities",
       "Architectural decisions that scale",
-      "Strategic guidance from idea to shipped product",
+      "AI readiness assessment and implementation roadmap",
     ],
     example:
       "Strategic planning that turned vague ideas into shipped products. Architectural decisions preventing expensive rewrites.",

@@ -5,81 +5,27 @@ import { motion } from "framer-motion"
 const painPoints = [
   {
     number: "01",
-    title: "MANUAL DATA ENTRY",
+    title: "MANUAL PROCESSES",
     description:
-      "Your team is drowning in Excel files. Data scattered across departments. Manual copy-paste eating hours every week. AI can automate this.",
+      "Manual data entry, copy-paste chaos, and repetitive workflows eating 20+ hours per week. AI automation can eliminate this.",
   },
   {
     number: "02",
-    title: "DELAYED DECISIONS",
+    title: "OUTDATED DECISIONS",
     description:
-      "Business intelligence waiting on manual reports. Decisions made on last week's data. Real-time AI dashboards give you current insights.",
+      "Business decisions based on last week's data. Manual reports cause delays. Real-time dashboards give you current insights immediately.",
   },
   {
     number: "03",
-    title: "REPETITIVE WORK",
+    title: "CAN'T SCALE",
     description:
-      "Smart people spending time on low-value tasks. Data entry, report generation, document processing—AI agents handle this work 97% faster.",
+      "Adding customers requires adding headcount. Processes break at growth. AI automation scales operations without hiring.",
   },
   {
     number: "04",
-    title: "CONTENT CAN'T SCALE",
+    title: "DATA SCATTERED",
     description:
-      "Can't produce content fast enough. Marketing, documentation, customer communication limited by human capacity. AI-assisted workflows scale output 5x.",
-  },
-  {
-    number: "05",
-    title: "SUPPORT OVERWHELMED",
-    description:
-      "Customer service drowning in repetitive tickets. FAQ, password resets, order status. AI agents handle 80% automatically—humans focus on complex issues.",
-  },
-  {
-    number: "06",
-    title: "WORKFLOW BOTTLENECKS",
-    description:
-      "Processes break at scale. No clear path to 10x growth without 10x headcount. AI automation removes bottlenecks without hiring.",
-  },
-  {
-    number: "07",
-    title: "DATA SCATTERED EVERYWHERE",
-    description:
-      "Sales, marketing, finance—each department's data lives in isolation. No unified view. Manual reconciliation wastes hours. AI integrates everything automatically.",
-  },
-  {
-    number: "08",
-    title: "STUCK IN OUTDATED SYSTEMS",
-    description:
-      "Old tech can't integrate with modern tools. Can't scale. Maintenance drains budget. AI bridges legacy systems with modern workflows.",
-  },
-  {
-    number: "09",
-    title: "KNOWLEDGE TRAPPED IN HEADS",
-    description:
-      "Critical processes exist only in key employees' minds. When they leave, knowledge walks out. AI documents and standardizes automatically.",
-  },
-  {
-    number: "10",
-    title: "APPROVAL BLACK HOLES",
-    description:
-      "Projects stall waiting for sign-offs. Too many checkpoints. Momentum dies. AI agents route and auto-approve routine decisions.",
-  },
-  {
-    number: "11",
-    title: "FLYING BLIND WITH OUTDATED DATA",
-    description:
-      "Decisions made on last week's reports. Can't see what's happening now. Real-time AI dashboards replace waiting games.",
-  },
-  {
-    number: "12",
-    title: "GROWTH PAINS WITHOUT GAIN",
-    description:
-      "Adding 10× customers requires 10× headcount. Processes break at scale. AI automation scales without hiring.",
-  },
-  {
-    number: "13",
-    title: "ONE-SIZE-FITS-NONE",
-    description:
-      "Off-the-shelf tools don't match your workflow. Forced compromises kill productivity. Custom AI systems built around your exact processes.",
+      "Data scattered across 7 different tools—Sales, Marketing, Finance, Support in isolation. No unified view. Custom systems integrate everything.",
   },
 ]
 
@@ -103,7 +49,7 @@ export function PainPointsSection() {
         </motion.div>
 
         {/* Pain Points Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#3F3F46]">
+        <div className="grid md:grid-cols-2 gap-px bg-[#3F3F46]">
           {painPoints.map((point, index) => (
             <motion.div
               key={point.number}

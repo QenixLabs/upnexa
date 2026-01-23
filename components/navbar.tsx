@@ -7,9 +7,10 @@ import { Menu, X } from "lucide-react"
 
 const navLinks = [
   { href: "#services", label: "SERVICES" },
-  { href: "#process", label: "PROCESS" },
   { href: "#work", label: "WORK" },
-  { href: "#about", label: "ABOUT" },
+  { href: "#team", label: "TEAM" },
+  { href: "#clients", label: "CLIENTS" },
+  { href: "/security", label: "SECURITY" },
 ]
 
 export function Navbar() {
@@ -45,11 +46,12 @@ export function Navbar() {
             >
               <Image
                 src="/logo.png"
-                alt="Aurelius"
-                width={120}
-                height={50}
+                alt="QenixLabs - Custom Software Development"
+                width={160}
+                height={60}
                 priority
                 className="object-contain"
+                sizes="(max-width: 768px) 120px, 160px"
               />
 
             </motion.a>

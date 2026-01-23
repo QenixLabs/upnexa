@@ -1,15 +1,15 @@
 import { Navbar } from "@/components/navbar"
 import { HeroSection } from "@/components/hero"
 import { StatsMarquee } from "@/components/statsMarquee"
-import { PainPointsSection } from "@/components/painPoints"
-import { ServicesSection } from "@/components/services"
-import { ProcessSection } from "@/components/process"
+import { ClientsSection } from "@/components/clients"
 import { CaseStudiesSection } from "@/components/caseStudies"
+import { ServicesSection } from "@/components/services"
+import { TeamSection } from "@/components/team"
+import { ClientPortalSection } from "@/components/clientPortal"
+import { ProcessSection } from "@/components/process"
 import { WhyUsSection } from "@/components/whyUs"
-import { TechStackSection } from "@/components/techStack"
-import { GuaranteeSection } from "@/components/guarantee"
-import { CtaSection } from "@/components/cta"
-import { FounderSection } from "@/components/founder"
+import { TestimonialsSection } from "@/components/testimonials"
+import { PricingSection } from "@/components/pricing"
 import { FaqSection } from "@/components/faq"
 import { ContactSection } from "@/components/contact"
 import { Footer } from "@/components/footer"
@@ -20,15 +20,15 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <StatsMarquee />
-      <PainPointsSection />
-      <ServicesSection />
-      <ProcessSection />
+      <ClientsSection />
       <CaseStudiesSection />
+      <ServicesSection />
+      <TeamSection />
+      <ClientPortalSection />
+      <ProcessSection />
       <WhyUsSection />
-      <TechStackSection />
-      <GuaranteeSection />
-      <CtaSection />
-      <FounderSection />
+      <TestimonialsSection />
+      <PricingSection />
       <FaqSection />
       <ContactSection />
       <Footer />

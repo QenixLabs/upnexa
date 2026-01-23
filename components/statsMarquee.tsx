@@ -7,7 +7,7 @@ const stats = [
   { value: "8-16", label: "WEEKS TO SHIP" },
   { value: "100%", label: "CODE OWNERSHIP" },
   { value: "24H", label: "RESPONSE TIME" },
-  { value: "₹12L+", label: "CLIENT REVENUE" },
+  { value: "₹50Cr+", label: "PLATFORMS MANAGED" },
   { value: "FIXED", label: "SCOPE & PRICE" },
 ]
 

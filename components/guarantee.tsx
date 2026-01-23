@@ -2,6 +2,25 @@
 
 import { motion } from "framer-motion"
 
+const guarantees = [
+  {
+    title: "BI-WEEKLY MILESTONE DEMOS",
+    description: "See working features every 2 weeks. No surprises.",
+  },
+  {
+    title: "TRANSPARENT SCOPE TRACKING",
+    description: "Real-time visibility into what we're building.",
+  },
+  {
+    title: "30-DAY POST-LAUNCH SUPPORT",
+    description: "We fix bugs found within 30 days at no cost.",
+  },
+  {
+    title: "FIXED PRICE—NO HOURLY BS",
+    description: "You know exactly what you're paying for upfront.",
+  },
+]
+
 export function GuaranteeSection() {
   return (
     <section className="py-20 md:py-32 border-b-2 border-[#3F3F46]">
@@ -36,9 +55,26 @@ export function GuaranteeSection() {
             <span className="text-primary">not excuses.</span>
           </p>
           <p className="text-lg md:text-xl text-[#A1A1AA] text-center mt-6 max-w-3xl mx-auto">
-            Fixed-scope projects. Milestone-based payments. You own everything we build.
+            Measurable commitments. Real accountability. No scope creep.
           </p>
         </motion.div>
+
+        {/* Guarantees Grid */}
+        <div className="grid md:grid-cols-2 gap-px bg-[#3F3F46] mb-12">
+          {guarantees.map((guarantee, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-[#09090B] p-8 hover:bg-primary transition-colors duration-300"
+            >
+              <p className="text-lg font-bold text-primary mb-2 uppercase tracking-wider">{guarantee.title}</p>
+              <p className="text-base text-[#A1A1AA] group-hover:text-black/80">{guarantee.description}</p>
+            </motion.div>
+          ))}
+        </div>
 
         {/* Value Tags */}
         <motion.div

@@ -3,10 +3,12 @@
 import { motion } from "framer-motion"
 
 const caseStudies = [
+  // SHIPPED PROJECTS
   {
     number: "01",
     title: "VULSPHERE",
     subtitle: "Vulnerability Lifecycle Management System",
+    category: "SHIPPED",
     challenge: "Enterprise security teams struggling to orchestrate the complete vulnerability remediation loop—from asset discovery and scanning to multi-stage approvals and confirmatory retesting across the organization.",
     metrics: [
       { value: "END-TO-END", label: "LIFECYCLE" },
@@ -17,8 +19,75 @@ const caseStudies = [
   },
   {
     number: "02",
+    title: "CLIENT MANAGEMENT SYSTEM",
+    subtitle: "Operational Software Platform",
+    category: "SHIPPED",
+    challenge: "Operations team drowning in Excel. Manual data entry, no visibility, constant errors, lost revenue from missed renewals.",
+    metrics: [
+      { value: "15 HRS", label: "SAVED/WEEK" },
+      { value: "₹2L+", label: "RECOVERED/YR" },
+      { value: "500+", label: "CLIENTS" },
+    ],
+    tech: "Next.js, NestJS, MongoDB, Redis",
+  },
+  {
+    number: "03",
+    title: "CREATOR TOOLKIT",
+    subtitle: "Complete SaaS Platform",
+    category: "SHIPPED",
+    challenge: "Content creators spending 20+ hours/week on production (thumbnails, editing, voice-overs, metadata).",
+    metrics: [
+      { value: "3X", label: "OUTPUT" },
+      { value: "14 WKS", label: "TO LAUNCH" },
+      { value: "GLOBAL", label: "USERS" },
+    ],
+    tech: "Next.js, Node.js, AWS, OpenAI",
+  },
+  {
+    number: "04",
+    title: "EDUCATION APP",
+    subtitle: "Mobile + Custom CMS",
+    category: "SHIPPED",
+    challenge: "Static website couldn't showcase dynamic campus life. Non-technical staff needed content control.",
+    metrics: [
+      { value: "10K+", label: "USERS" },
+      { value: "67%", label: "OPEN RATE" },
+      { value: "MINUTES", label: "TO UPDATE" },
+    ],
+    tech: "React Native, Expo, NestJS, AWS",
+  },
+  {
+    number: "05",
+    title: "ENTERPRISE LMS",
+    subtitle: "Learning Management Platform",
+    category: "SHIPPED",
+    challenge: "Generic LMS platforms built for universities. Enterprise needed purpose-built system for their teaching model.",
+    metrics: [
+      { value: "18 WKS", label: "TO BUILD" },
+      { value: "CUSTOM", label: "WORKFLOW" },
+      { value: "ZERO", label: "VENDOR LOCK" },
+    ],
+    tech: "Next.js, NestJS, MongoDB, Redis",
+  },
+  {
+    number: "06",
+    title: "SCALABLE INFRASTRUCTURE",
+    subtitle: "Cloud & DevOps Implementation",
+    category: "SHIPPED",
+    challenge: "Application buckling under growth. Slow load times, frequent crashes, no clear path to scale from 1K to 1M users.",
+    metrics: [
+      { value: "99.9%", label: "UPTIME" },
+      { value: "6 WKS", label: "TO DEPLOY" },
+      { value: "70%", label: "COST CUT" },
+    ],
+    tech: "AWS, Docker, Kubernetes, Terraform",
+  },
+  // CAPABILITY DEMONSTRATIONS
+  {
+    number: "07",
     title: "AI AUDIT REPORTS",
-    subtitle: "AI Agent Automation (PROVEN)",
+    subtitle: "AI Agent Automation",
+    category: "CAPABILITY",
     challenge: "Audit teams spending 6 hours per report analyzing data, structuring findings, and generating documents manually. AI agents trained on audit framework now handle the repetitive work.",
     metrics: [
       { value: "97%", label: "TIME REDUCTION" },
@@ -29,21 +98,10 @@ const caseStudies = [
     isAI: true,
   },
   {
-    number: "03",
-    title: "CLIENT MANAGEMENT SYSTEM",
-    subtitle: "Operational Software Platform",
-    challenge: "Operations team drowning in Excel. Manual data entry, no visibility, constant errors, lost revenue from missed renewals.",
-    metrics: [
-      { value: "15 HRS", label: "SAVED/WEEK" },
-      { value: "₹2L+", label: "RECOVERED/YR" },
-      { value: "500+", label: "CLIENTS" },
-    ],
-    tech: "Next.js, NestJS, MongoDB, Redis",
-  },
-  {
-    number: "04",
+    number: "08",
     title: "AI CUSTOMER SUPPORT",
     subtitle: "Example Use Case",
+    category: "CAPABILITY",
     challenge: "Customer service teams overwhelmed by repetitive tickets. AI agents trained on your knowledge base handle 80% of routine inquiries—password resets, order status, troubleshooting—while humans focus on complex issues.",
     metrics: [
       { value: "80%", label: "AUTO-RESOLVED" },
@@ -54,21 +112,10 @@ const caseStudies = [
     isAI: true,
   },
   {
-    number: "05",
-    title: "CREATOR TOOLKIT",
-    subtitle: "Complete SaaS Platform",
-    challenge: "Content creators spending 20+ hours/week on production (thumbnails, editing, voice-overs, metadata).",
-    metrics: [
-      { value: "3X", label: "OUTPUT" },
-      { value: "14 WKS", label: "TO LAUNCH" },
-      { value: "GLOBAL", label: "USERS" },
-    ],
-    tech: "Next.js, Node.js, AWS, OpenAI",
-  },
-  {
-    number: "06",
+    number: "09",
     title: "AI BUSINESS INTELLIGENCE",
     subtitle: "Example Use Case",
+    category: "CAPABILITY",
     challenge: "Business intelligence delayed by manual reporting. AI analyzes data trends, surfaces anomalies, and generates insights in real-time. Decisions based on current data, not last week's spreadsheet.",
     metrics: [
       { value: "REAL-TIME", label: "INSIGHTS" },
@@ -79,21 +126,10 @@ const caseStudies = [
     isAI: true,
   },
   {
-    number: "07",
-    title: "EDUCATION APP",
-    subtitle: "Mobile + Custom CMS",
-    challenge: "Static website couldn't showcase dynamic campus life. Non-technical staff needed content control.",
-    metrics: [
-      { value: "10K+", label: "USERS" },
-      { value: "67%", label: "OPEN RATE" },
-      { value: "MINUTES", label: "TO UPDATE" },
-    ],
-    tech: "React Native, Expo, NestJS, AWS",
-  },
-  {
-    number: "08",
+    number: "10",
     title: "AI CONTENT OPERATIONS",
     subtitle: "Example Use Case",
+    category: "CAPABILITY",
     challenge: "Can't produce content fast enough? AI-assisted workflows scale output 5x without headcount. AI drafts first drafts, humans refine strategy and brand voice.",
     metrics: [
       { value: "5X", label: "OUTPUT" },
@@ -102,30 +138,6 @@ const caseStudies = [
     ],
     tech: "OpenAI, Anthropic, Next.js",
     isAI: true,
-  },
-  {
-    number: "09",
-    title: "ENTERPRISE LMS",
-    subtitle: "Learning Management Platform",
-    challenge: "Generic LMS platforms built for universities. Enterprise needed purpose-built system for their teaching model.",
-    metrics: [
-      { value: "18 WKS", label: "TO BUILD" },
-      { value: "CUSTOM", label: "WORKFLOW" },
-      { value: "ZERO", label: "VENDOR LOCK" },
-    ],
-    tech: "Next.js, NestJS, MongoDB, Redis",
-  },
-  {
-    number: "10",
-    title: "SCALABLE INFRASTRUCTURE",
-    subtitle: "Cloud & DevOps Implementation",
-    challenge: "Application buckling under growth. Slow load times, frequent crashes, no clear path to scale from 1K to 1M users.",
-    metrics: [
-      { value: "99.9%", label: "UPTIME" },
-      { value: "6 WKS", label: "TO DEPLOY" },
-      { value: "70%", label: "COST CUT" },
-    ],
-    tech: "AWS, Docker, Kubernetes, Terraform",
   },
 ]
 
@@ -169,10 +181,13 @@ export function CaseStudiesSection() {
                   {study.number}
                 </span>
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
+                  <div className="flex items-center gap-2 mb-1 flex-wrap">
                     <h3 className="text-lg md:text-xl lg:text-2xl font-bold uppercase tracking-tighter text-[#FAFAFA] group-hover:text-black transition-colors duration-300 break-words">
                       {study.title}
                     </h3>
+                    <span className={`text-[10px] font-bold px-2 py-1 uppercase tracking-wider ${study.category === 'SHIPPED' ? 'text-[#FAFAFA] bg-[#27272A] group-hover:text-black group-hover:bg-black/20' : 'text-primary bg-primary/10 group-hover:text-black group-hover:bg-black/10'}`}>
+                      {study.category}
+                    </span>
                     {study.isAI && (
                       <span className="text-[10px] font-bold text-primary group-hover:text-black bg-primary/10 group-hover:bg-black/10 px-2 py-1 uppercase tracking-wider">
                         AI
