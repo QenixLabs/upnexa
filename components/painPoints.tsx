@@ -39,6 +39,48 @@ const painPoints = [
     description:
       "Processes break at scale. No clear path to 10x growth without 10x headcount. AI automation removes bottlenecks without hiring.",
   },
+  {
+    number: "07",
+    title: "DATA SCATTERED EVERYWHERE",
+    description:
+      "Sales, marketing, finance—each department's data lives in isolation. No unified view. Manual reconciliation wastes hours. AI integrates everything automatically.",
+  },
+  {
+    number: "08",
+    title: "STUCK IN OUTDATED SYSTEMS",
+    description:
+      "Old tech can't integrate with modern tools. Can't scale. Maintenance drains budget. AI bridges legacy systems with modern workflows.",
+  },
+  {
+    number: "09",
+    title: "KNOWLEDGE TRAPPED IN HEADS",
+    description:
+      "Critical processes exist only in key employees' minds. When they leave, knowledge walks out. AI documents and standardizes automatically.",
+  },
+  {
+    number: "10",
+    title: "APPROVAL BLACK HOLES",
+    description:
+      "Projects stall waiting for sign-offs. Too many checkpoints. Momentum dies. AI agents route and auto-approve routine decisions.",
+  },
+  {
+    number: "11",
+    title: "FLYING BLIND WITH OUTDATED DATA",
+    description:
+      "Decisions made on last week's reports. Can't see what's happening now. Real-time AI dashboards replace waiting games.",
+  },
+  {
+    number: "12",
+    title: "GROWTH PAINS WITHOUT GAIN",
+    description:
+      "Adding 10× customers requires 10× headcount. Processes break at scale. AI automation scales without hiring.",
+  },
+  {
+    number: "13",
+    title: "ONE-SIZE-FITS-NONE",
+    description:
+      "Off-the-shelf tools don't match your workflow. Forced compromises kill productivity. Custom AI systems built around your exact processes.",
+  },
 ]
 
 export function PainPointsSection() {
