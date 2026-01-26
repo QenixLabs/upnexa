@@ -44,7 +44,7 @@ export function TeamSection() {
   ]
 
   return (
-    <section id="team" ref={ref} className="relative py-32 md:py-48 overflow-hidden bg-[#18181b]">
+    <section id="team" ref={ref} className="relative py-20 md:py-32 overflow-hidden bg-[#09090B] border-b-2 border-[#3F3F46]">
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute inset-0" style={{
@@ -68,14 +68,8 @@ export function TeamSection() {
           className="space-y-16 md:space-y-24"
         >
           {/* Section Label */}
-          <motion.div variants={itemVariants} className="flex items-center gap-4">
-            <motion.div
-              variants={lineVariants}
-              className="h-px w-12 bg-primary"
-            />
-            <span className="text-xs font-bold text-primary tracking-[0.3em] uppercase">
-              Team — 001
-            </span>
+          <motion.div variants={itemVariants} className="mb-8">
+            <span className="text-sm font-bold text-primary uppercase tracking-widest">TEAM</span>
           </motion.div>
 
           {/* Main Heading */}

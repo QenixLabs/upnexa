@@ -3,19 +3,53 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 
 const navLinks = [
-  { href: "#services", label: "SERVICES" },
-  { href: "#work", label: "WORK" },
-  { href: "#team", label: "TEAM" },
-  { href: "#clients", label: "CLIENTS" },
-  { href: "/security", label: "SECURITY" },
+  {
+    label: "SERVICES",
+    href: "/services",
+    dropdown: [
+      { label: "AI Automation", href: "/services#ai-automation" },
+      { label: "Custom Platforms", href: "/services#custom-platforms" },
+      { label: "Infrastructure", href: "/services#infrastructure" },
+      { label: "Consulting", href: "/services#consulting" },
+    ],
+  },
+  {
+    label: "WORK",
+    href: "/work",
+    dropdown: [
+      { label: "Shipped Projects", href: "/work" },
+      { label: "AI Capabilities", href: "/work" },
+    ],
+  },
+  {
+    label: "APPROACH",
+    href: "/approach",
+    dropdown: [
+      { label: "Process", href: "/approach#process" },
+      { label: "Why Us", href: "/approach#differentiators" },
+      { label: "Client Portal", href: "/approach#portal" },
+    ],
+  },
+  {
+    label: "ABOUT",
+    href: "/about",
+    dropdown: [
+      { label: "Team", href: "/about" },
+      { label: "Story", href: "/about#story" },
+    ],
+  },
+  { label: "PRICING", href: "/pricing" },
+  { label: "SECURITY", href: "/security" },
 ]
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [hoveredDropdown, setHoveredDropdown] = useState<string | null>(null)
+  const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,13 +59,17 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const toggleMobileDropdown = (label: string) => {
+    setOpenMobileDropdown(openMobileDropdown === label ? null : label)
+  }
+
   return (
     <>
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 overflow-hidden ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled ? "bg-[#09090B]/90 backdrop-blur-sm border-b-2 border-[#3F3F46]" : "bg-transparent"
         }`}
       >
@@ -39,7 +77,7 @@ export function Navbar() {
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <motion.a
-              href="#"
+              href="/"
               className="flex items-center gap-3"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -53,27 +91,64 @@ export function Navbar() {
                 className="object-contain"
                 sizes="(max-width: 768px) 120px, 160px"
               />
-
             </motion.a>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-6">
               {navLinks.map((link) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-bold text-[#A1A1AA] hover:text-primary transition-colors uppercase tracking-wider"
-                  whileHover={{ y: -2 }}
+                <div
+                  key={link.label}
+                  className="relative"
+                  onMouseEnter={() => link.dropdown && setHoveredDropdown(link.label)}
+                  onMouseLeave={() => setHoveredDropdown(null)}
                 >
-                  {link.label}
-                </motion.a>
+                  <motion.div className="flex items-center gap-1">
+                    <a
+                      href={link.href}
+                      className="text-sm font-bold text-[#A1A1AA] hover:text-primary transition-colors uppercase tracking-wider"
+                    >
+                      {link.label}
+                    </a>
+                    {link.dropdown && (
+                      <ChevronDown
+                        size={14}
+                        className={`text-[#A1A1AA] transition-transform duration-200 ${
+                          hoveredDropdown === link.label ? "rotate-180 text-primary" : ""
+                        }`}
+                      />
+                    )}
+                  </motion.div>
+
+                  {/* Dropdown Menu */}
+                  <AnimatePresence>
+                    {link.dropdown && hoveredDropdown === link.label && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full left-0 mt-2 min-w-[200px] bg-[#09090B] border-2 border-[#3F3F46] shadow-lg"
+                      >
+                        {link.dropdown.map((item) => (
+                          <a
+                            key={item.label}
+                            href={item.href}
+                            className="block px-4 py-3 text-sm font-bold text-[#A1A1AA] hover:text-primary hover:bg-[#27272A] transition-colors uppercase tracking-wider whitespace-nowrap"
+                          >
+                            {item.label}
+                          </a>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               ))}
             </nav>
 
             {/* CTA Button */}
             <div className="hidden lg:block">
               <motion.a
-                href="#contact"
+                href="/#contact"
                 className="inline-flex items-center justify-center h-12 px-8 bg-primary text-black font-bold uppercase tracking-tighter text-sm hover:scale-105 active:scale-95 transition-transform"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -98,29 +173,67 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 lg:hidden bg-[#09090B]"
+            className="fixed inset-0 z-40 lg:hidden bg-[#09090B] overflow-y-auto"
           >
-            <nav className="flex flex-col items-center justify-center h-full gap-8">
+            <nav className="flex flex-col items-center justify-center min-h-full gap-6 py-20">
               {navLinks.map((link, index) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="text-4xl font-bold text-[#FAFAFA] uppercase tracking-tighter hover:text-primary transition-colors"
-                >
-                  {link.label}
-                </motion.a>
+                <div key={link.label} className="w-full max-w-xs">
+                  <motion.button
+                    onClick={() => {
+                      if (link.dropdown) {
+                        toggleMobileDropdown(link.label)
+                      } else {
+                        setIsMobileMenuOpen(false)
+                      }
+                    }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="w-full flex items-center justify-between text-2xl md:text-3xl font-bold text-[#FAFAFA] uppercase tracking-tighter hover:text-primary transition-colors py-3"
+                  >
+                    <span>{link.label}</span>
+                    {link.dropdown && (
+                      <ChevronDown
+                        size={20}
+                        className={`transition-transform duration-200 ${openMobileDropdown === link.label ? "rotate-180" : ""}`}
+                      />
+                    )}
+                  </motion.button>
+
+                  {/* Mobile Dropdown */}
+                  <AnimatePresence>
+                    {link.dropdown && openMobileDropdown === link.label && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="flex flex-col gap-4 pl-6 py-4">
+                          {link.dropdown.map((item) => (
+                            <a
+                              key={item.label}
+                              href={item.href}
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className="text-lg font-bold text-[#A1A1AA] hover:text-primary transition-colors uppercase tracking-wider"
+                            >
+                              {item.label}
+                            </a>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               ))}
               <motion.a
-                href="#contact"
+                href="/#contact"
                 onClick={() => setIsMobileMenuOpen(false)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="mt-8 inline-flex items-center justify-center h-14 px-12 bg-primary text-black font-bold uppercase tracking-tighter text-lg"
+                className="mt-6 inline-flex items-center justify-center h-14 px-12 bg-primary text-black font-bold uppercase tracking-tighter text-lg"
               >
                 LET'S TALK
               </motion.a>

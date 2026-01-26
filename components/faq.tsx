@@ -8,12 +8,12 @@ const faqs = [
   {
     question: "DO YOU WORK WITH STARTUPS?",
     answer:
-      "Yes, if you have real budget and realistic expectations. We don't do 'MVP in 2 weeks for ₹50K' projects—that sets everyone up for failure.",
+      "Yes, if you have real budget and realistic expectations. We don't do 'MVP in 2 weeks for $600' projects—that sets everyone up for failure.",
   },
   {
     question: "WHAT'S YOUR MINIMUM ENGAGEMENT?",
     answer:
-      "₹3-5L minimum for new projects. This ensures we can deliver proper attention and outcomes. For exploratory work, our technical consultation is ₹15K.",
+      "$3.6K-6K minimum for new projects. This ensures we can deliver proper attention and outcomes. For exploratory work, our technical consultation is $180.",
   },
   {
     question: "CAN I SEE YOUR CODE?",

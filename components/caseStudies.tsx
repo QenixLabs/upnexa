@@ -25,7 +25,7 @@ const caseStudies = [
     challenge: "Operations team drowning in Excel. Manual data entry, no visibility, constant errors, lost revenue from missed renewals.",
     metrics: [
       { value: "15 HRS", label: "SAVED/WEEK" },
-      { value: "₹2L+", label: "RECOVERED/YR" },
+      { value: "$24K+", label: "RECOVERED/YR" },
       { value: "500+", label: "CLIENTS" },
     ],
     tech: "Next.js, NestJS, MongoDB, Redis",
@@ -185,9 +185,6 @@ export function CaseStudiesSection() {
                     <h3 className="text-lg md:text-xl lg:text-2xl font-bold uppercase tracking-tighter text-[#FAFAFA] group-hover:text-black transition-colors duration-300 break-words">
                       {study.title}
                     </h3>
-                    <span className={`text-[10px] font-bold px-2 py-1 uppercase tracking-wider ${study.category === 'SHIPPED' ? 'text-[#FAFAFA] bg-[#27272A] group-hover:text-black group-hover:bg-black/20' : 'text-primary bg-primary/10 group-hover:text-black group-hover:bg-black/10'}`}>
-                      {study.category}
-                    </span>
                     {study.isAI && (
                       <span className="text-[10px] font-bold text-primary group-hover:text-black bg-primary/10 group-hover:bg-black/10 px-2 py-1 uppercase tracking-wider">
                         AI

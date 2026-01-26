@@ -44,7 +44,7 @@ export function CtaSection() {
 
           {/* Consultation Note */}
           <p className="text-base text-black/60 mt-12 max-w-xl mx-auto">
-            Not ready for AI? We build custom software too. Start with a detailed technical consultation (₹15K, 3 hours). Get a complete project
+            Not ready for AI? We build custom software too. Start with a detailed technical consultation ($180, 3 hours). Get a complete project
             blueprint. If you hire us, we credit it back.
           </p>
         </motion.div>

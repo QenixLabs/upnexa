@@ -5,12 +5,12 @@ import { motion } from "framer-motion"
 import Marquee from "react-fast-marquee"
 
 const footerLinks = [
-  { href: "#services", label: "SERVICES" },
-  { href: "#work", label: "WORK" },
-  { href: "#team", label: "TEAM" },
-  { href: "#clients", label: "CLIENTS" },
+  { href: "/services", label: "SERVICES" },
+  { href: "/work", label: "WORK" },
+  { href: "/approach", label: "APPROACH" },
+  { href: "/about", label: "ABOUT" },
+  { href: "/pricing", label: "PRICING" },
   { href: "/security", label: "SECURITY" },
-  { href: "#contact", label: "CONTACT" },
 ]
 
 export function Footer() {
@@ -35,7 +35,7 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <a href="#" className="flex items-center gap-3 mb-6">
+            <a href="/" className="flex items-center gap-3 mb-6">
               <Image
                 src="/logo-black.png"
                 alt="QenixLabs - Custom Software Development"
@@ -46,7 +46,7 @@ export function Footer() {
               />
             </a>
             <p className="text-black/70 text-base max-w-xs">
-              Custom software that solves real problems. No templates, no shortcuts—just code that works.
+              Remote-first team serving global clients. Custom software that solves real problems.
             </p>
           </motion.div>
 
@@ -111,6 +111,9 @@ export function Footer() {
         <div className="pt-8 border-t-2 border-black flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm font-bold uppercase tracking-wider text-black/70">
             © 2026 QENIXLABS. BUILT FOR RESULTS.
+          </p>
+          <p className="text-sm text-black/50">
+            Mumbai, India
           </p>
         </div>
       </div>

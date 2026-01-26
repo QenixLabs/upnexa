@@ -5,7 +5,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Security & Compliance | QENIXLABS",
-  description: "Enterprise-grade security practices. GDPR-compliant data handling. NDA-protected engagements. Your IP stays yours.",
+  description: "Global security standards. Enterprise-grade security practices. GDPR-compliant data handling. NDA-protected engagements. Your IP stays yours.",
   keywords: [
     "security",
     "compliance",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Security & Compliance | QENIXLABS",
-    description: "Enterprise-grade security practices. GDPR-compliant data handling. NDA-protected engagements.",
+    description: "Global security standards. Enterprise-grade security practices. GDPR-compliant data handling. NDA-protected engagements.",
     type: "website",
     url: "https://qenixlabs.com/security",
     images: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Security & Compliance | QENIXLABS",
-    description: "Enterprise-grade security practices. GDPR-compliant data handling. NDA-protected engagements.",
+    description: "Global security standards. Enterprise-grade security practices. GDPR-compliant data handling. NDA-protected engagements.",
     images: ["https://qenixlabs.com/og.png"],
   },
   alternates: {
@@ -146,7 +146,7 @@ export default function SecurityPage() {
             <span className="text-primary">COMPLIANCE</span>
           </h1>
           <p className="text-xl md:text-2xl text-[#A1A1AA] max-w-3xl mt-8">
-            Enterprise-grade security practices. GDPR-compliant data handling. NDA-protected engagements. Your IP stays yours.
+            Global security standards. Enterprise-grade practices. GDPR-compliant data handling. NDA-protected engagements. Your IP stays yours.
           </p>
         </div>
       </section>

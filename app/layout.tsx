@@ -12,9 +12,8 @@ const spaceGrotesk = Space_Grotesk({
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
 
 export const metadata: Metadata = {
-  title: "QENIXLABS | WE BUILD SOFTWARE THAT WORKS",
-  description:
-    "Enterprise platforms that eliminate chaos. AI agents that automate the boring stuff. Custom systems built for YOUR workflow. Custom software development company in Mumbai, India.",
+  title: "QENIXLABS | Custom Software Development & AI Automation",
+  description: "Enterprise platforms that eliminate chaos. AI agents that automate the boring stuff. Custom systems built for YOUR workflow.",
   generator: "v0.app",
   keywords: [
     "software development",
@@ -34,9 +33,8 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "QENIXLABS | WE BUILD SOFTWARE THAT WORKS",
-    description:
-      "Enterprise platforms that eliminate chaos. AI agents that automate the boring stuff. Custom systems built for YOUR workflow.",
+    title: "QENIXLABS | Custom Software Development & AI Automation",
+    description: "Enterprise platforms that eliminate chaos. AI agents that automate the boring stuff.",
     type: "website",
     url: "https://qenixlabs.com",
     siteName: "QenixLabs",
@@ -51,9 +49,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "QENIXLABS | WE BUILD SOFTWARE THAT WORKS",
-    description:
-      "Enterprise platforms that eliminate chaos. AI agents that automate the boring stuff. Custom systems built for YOUR workflow.",
+    title: "QENIXLABS | Custom Software Development & AI Automation",
+    description: "Enterprise platforms that eliminate chaos. AI agents that automate the boring stuff.",
     images: ["https://qenixlabs.com/og.png"],
   },
   robots: {
@@ -75,7 +72,6 @@ export default function RootLayout({
     url: "https://qenixlabs.com",
     logo: "https://qenixlabs.com/logo.png",
     email: "info@qenixlabs.com",
-    telephone: "+91-7715969989",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Mumbai",
@@ -87,15 +83,11 @@ export default function RootLayout({
     ],
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+91-7715969989",
       contactType: "sales",
       email: "info@qenixlabs.com",
       availableLanguage: "English",
     },
-    areaServed: {
-      "@type": "Country",
-      name: "India",
-    },
+    areaServed: "Worldwide",
   }
 
   return (

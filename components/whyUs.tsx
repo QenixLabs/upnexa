@@ -16,7 +16,7 @@ const benefits = [
       "We build actual AI systems with OpenAI, Anthropic, LangChain. Agents trained on YOUR data. Not generic prompts—custom solutions.",
   },
   {
-    title: "FIXED SCOPE, FIXED PRICE",
+    title: "OUTCOME-BASED ENGAGEMENT",
     subtitle: "You know exactly what you're paying for.",
     description:
       "Scope defined upfront. Milestones delivered on time. Changes tracked transparently. No hourly BS that incentivizes slow work.",

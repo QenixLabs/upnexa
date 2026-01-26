@@ -34,7 +34,7 @@ export function ContactSection() {
             </h2>
 
             <p className="text-base md:text-lg lg:text-xl text-[#A1A1AA] mb-8 md:mb-12 leading-tight">
-              Drop us a message. We'll get back within 24 hours. No sales pitch—just real talk about your needs.
+              Drop us a message. Global team. 24-hour response guarantee. No sales pitch—just real talk about your needs.
             </p>
 
             {/* Contact Info */}
@@ -47,21 +47,6 @@ export function ContactSection() {
                 >
                   INFO@QENIXLABS.COM
                 </a>
-              </div>
-              <div className="flex items-center gap-3 md:gap-4">
-                <span className="text-primary text-xl md:text-2xl flex-shrink-0">→</span>
-                <a
-                  href="tel:+917715969989"
-                  className="text-base md:text-xl lg:text-2xl font-bold text-[#FAFAFA] hover:text-primary transition-colors uppercase tracking-tighter"
-                >
-                  +91-7715969989
-                </a>
-              </div>
-              <div className="flex items-center gap-3 md:gap-4">
-                <span className="text-primary text-xl md:text-2xl flex-shrink-0">→</span>
-                <span className="text-base md:text-xl lg:text-2xl font-bold text-[#FAFAFA] uppercase tracking-tighter">
-                  MUMBAI, INDIA
-                </span>
               </div>
             </div>
           </motion.div>

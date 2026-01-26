@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 const pricing = [
   {
     name: "TECHNICAL CONSULTATION",
-    price: "₹15K",
+    price: "$180",
     duration: "3 HOURS",
     description: "Perfect for exploratory work. Get a complete technical assessment, architecture recommendations, and implementation roadmap.",
     included: [
@@ -22,7 +22,7 @@ const pricing = [
   },
   {
     name: "MINIMUM PROJECT ENGAGEMENT",
-    price: "₹3-5L",
+    price: "$3.6K-6K",
     duration: "8-16 WEEKS",
     description: "From discovery to deployed solution. We take on 3-4 new projects per quarter to ensure quality delivery.",
     included: [
@@ -30,7 +30,7 @@ const pricing = [
       "System architecture & design",
       "Full development & deployment",
       "30-day post-launch support",
-      "Fixed price—no hourly surprises",
+      "Outcome-based pricing—no hourly surprises",
       "Direct access to engineers",
     ],
     notIncluded: [

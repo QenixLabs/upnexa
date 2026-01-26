@@ -72,8 +72,8 @@ const serviceSchema = {
       url: "https://qenixlabs.com",
     },
     areaServed: {
-      "@type": "Country",
-      name: "India",
+      "@type": "Place",
+      name: "Global",
     },
   })),
 }

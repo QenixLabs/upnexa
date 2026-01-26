@@ -16,7 +16,7 @@ const guarantees = [
     description: "We fix bugs found within 30 days at no cost.",
   },
   {
-    title: "FIXED PRICE—NO HOURLY BS",
+    title: "OUTCOME-BASED PRICING—NO HOURLY BS",
     description: "You know exactly what you're paying for upfront.",
   },
 ]
@@ -84,7 +84,7 @@ export function GuaranteeSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex flex-wrap justify-center gap-4"
         >
-          {["FIXED-SCOPE", "MILESTONE PAYMENTS", "NO HOURLY", "TRANSPARENT"].map((item) => (
+          {["OUTCOME-BASED", "MILESTONE PAYMENTS", "NO HOURLY", "TRANSPARENT"].map((item) => (
             <span
               key={item}
               className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#3F3F46] text-sm font-bold text-[#FAFAFA] uppercase tracking-wider hover:bg-primary hover:text-black hover:border-primary transition-colors duration-300"

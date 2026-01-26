@@ -7,8 +7,8 @@ const stats = [
   { value: "8-16", label: "WEEKS TO SHIP" },
   { value: "100%", label: "CODE OWNERSHIP" },
   { value: "24H", label: "RESPONSE TIME" },
-  { value: "₹50Cr+", label: "PLATFORMS MANAGED" },
-  { value: "FIXED", label: "SCOPE & PRICE" },
+  { value: "$6M+", label: "REVENUE MANAGED" },
+  { value: "GLOBAL", label: "CLIENT SERVING" },
 ]
 
 export function StatsMarquee() {

@@ -5,7 +5,7 @@ import Image from "next/image"
 
 const achievements = [
   "AI systems cutting report generation by 97%",
-  "Enterprise platforms managing ₹50Cr+ annual revenue",
+  "Enterprise platforms managing $6M+ annual revenue",
   "Custom tools saving companies 40+ hours weekly",
   "Real AI implementation with OpenAI, Anthropic, LangGraph",
 ]
