@@ -1,112 +1,237 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
-import { Linkedin } from "lucide-react"
+import { Linkedin, ArrowRight, Zap } from "lucide-react"
+import { useRef } from "react"
+import { useInView } from "framer-motion"
 
 export function TeamSection() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+    },
+  }
+
+  const lineVariants = {
+    hidden: { scaleX: 0 },
+    visible: {
+      scaleX: 1,
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
+    },
+  }
+
+  const specialistItems = [
+    { title: "Product & UX Design", icon: "○" },
+    { title: "DevOps & Cloud Infrastructure", icon: "△" },
+    { title: "Security & Compliance", icon: "□" },
+  ]
+
   return (
-    <section id="team" className="py-20 md:py-32 border-b-2 border-[#3F3F46]">
-      <div className="max-w-7xl xl:max-w-7xl 2xl:max-w-6xl mx-auto px-4 md:px-8">
-        {/* Section Header */}
+    <section id="team" ref={ref} className="relative py-32 md:py-48 overflow-hidden bg-[#18181b]">
+      {/* Animated Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px),
+            linear-gradient(hsl(var(--primary)) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
+        }} />
+      </div>
+
+      {/* Decorative Corner Elements */}
+      <div className="absolute top-0 left-0 w-32 h-32 border-l-2 border-t-2 border-primary/20" />
+      <div className="absolute bottom-0 right-0 w-32 h-32 border-r-2 border-b-2 border-primary/20" />
+
+      <div className="relative max-w-6xl mx-auto px-6 md:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 md:mb-24"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="space-y-16 md:space-y-24"
         >
-          <span className="text-sm font-bold text-primary uppercase tracking-widest">TEAM</span>
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tighter text-[#FAFAFA] leading-[0.9] mt-4">
-            THE PEOPLE
-            <br />
-            <span className="text-primary">BUILDING</span>
-          </h2>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          {/* Founder Card */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative"
-          >
-            <div className="aspect-square border-2 border-[#3F3F46] rounded-t-[100px] overflow-hidden">
-              <Image
-                src="/photo.png"
-                alt="Founder - Lead Engineer & AI Integrator"
-                width={600}
-                height={600}
-                className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
-              />
-            </div>
-            {/* Experience Badge */}
-            <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 lg:-right-12 p-4 md:p-6 bg-primary text-black">
-              <div className="text-4xl md:text-5xl font-bold tracking-tighter">5+</div>
-              <div className="text-sm font-bold uppercase tracking-widest">YEARS</div>
-            </div>
+          {/* Section Label */}
+          <motion.div variants={itemVariants} className="flex items-center gap-4">
+            <motion.div
+              variants={lineVariants}
+              className="h-px w-12 bg-primary"
+            />
+            <span className="text-xs font-bold text-primary tracking-[0.3em] uppercase">
+              Team — 001
+            </span>
           </motion.div>
 
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="text-3xl md:text-4xl font-bold uppercase tracking-tighter text-[#FAFAFA] mb-6">
-              FOUNDED & LED BY
+          {/* Main Heading */}
+          <motion.div variants={itemVariants} className="relative">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold uppercase tracking-tighter text-[#FAFAFA] leading-[0.85]">
+              THE PEOPLE
               <br />
-              <span className="text-primary">ENGINEERS</span>
-            </h3>
-
-            <p className="text-lg md:text-xl text-[#A1A1AA] mb-8 leading-tight">
-              Lead Engineer & AI Integrator with 5+ years building enterprise software. Supported by specialist network—Design, DevOps, Security.
-            </p>
-
-            {/* Specialist Network */}
-            <div className="mb-8">
-              <p className="font-bold text-[#FAFAFA] uppercase tracking-wider text-sm mb-4">SPECIALIST NETWORK:</p>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="text-primary text-xl">→</span>
-                  <span className="text-lg text-[#A1A1AA]">Product & UX Design</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-primary text-xl">→</span>
-                  <span className="text-lg text-[#A1A1AA]">DevOps & Cloud Infrastructure</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-primary text-xl">→</span>
-                  <span className="text-lg text-[#A1A1AA]">Security & Compliance</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Momentum Statement */}
-            <div className="p-6 md:p-8 border-2 border-primary/50 bg-[#27272A]">
-              <p className="text-sm font-bold text-primary uppercase tracking-widest mb-2">CURRENTLY BUILDING</p>
-              <p className="text-lg md:text-xl text-[#FAFAFA] font-medium leading-tight">
-                The future of AI-powered business software. Whether you hire us or not.
-              </p>
-            </div>
-
-            {/* LinkedIn Link */}
-            <motion.a
-              href="https://linkedin.com/in/jaiswarnilesh/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 mt-8 text-lg md:text-xl font-bold text-[#FAFAFA] hover:text-primary transition-colors"
-              whileHover={{ x: 5 }}
-            >
-              <Linkedin size={24} />
-              CONNECT ON LINKEDIN
-            </motion.a>
+              <span className="text-primary">BUILDING</span>
+            </h1>
+            {/* Decorative underline */}
+            <motion.div
+              variants={lineVariants}
+              className="absolute -bottom-4 left-0 h-1 bg-primary origin-left"
+              style={{ width: '120px' }}
+            />
           </motion.div>
-        </div>
+
+          {/* Content Grid */}
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+            {/* Left Column - Main Content */}
+            <motion.div variants={itemVariants} className="lg:col-span-7 space-y-10">
+              {/* Subheading */}
+              <div className="relative">
+                <div className="absolute -left-6 top-0 bottom-0 w-px to-transparent from-primary/50 bg-linear-gradient-to-b" />
+                <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight text-[#FAFAFA] leading-tight">
+                  FOUNDED & LED BY
+                  <br />
+                  <span className="text-primary">ENGINEERS</span>
+                </h2>
+              </div>
+
+              {/* Description */}
+              <p className="text-xl md:text-2xl text-[#A1A1AA] leading-relaxed font-light">
+                Lead Engineer & AI Integrator with <span className="text-primary font-semibold">5+ years</span> building enterprise software.
+                <br />
+                <br />
+                Supported by a specialist network—Design, DevOps, Security.
+              </p>
+
+              {/* LinkedIn CTA */}
+              <motion.a
+                href="https://linkedin.com/in/jaiswarnilesh/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-4 text-[#FAFAFA] hover:text-primary transition-colors duration-300"
+                whileHover={{ x: 8 }}
+              >
+                <span className="text-lg font-bold uppercase tracking-wider">
+                  Connect on LinkedIn
+                </span>
+                <div className="relative">
+                  <Linkedin size={20} className="relative z-10" />
+                  <motion.div
+                    className="absolute inset-0 bg-primary/20 rounded-full"
+                    initial={{ scale: 0 }}
+                    whileHover={{ scale: 1.5 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </div>
+                <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform duration-300" />
+              </motion.a>
+            </motion.div>
+
+            {/* Right Column - Specialist Network */}
+            <motion.div variants={itemVariants} className="lg:col-span-5 relative">
+              {/* Decorative bracket */}
+              <div className="absolute -top-6 -right-6 w-12 h-12 border-r-2 border-t-2 border-primary/30" />
+
+              <div className="relative p-8 md:p-10 border border-[#3F3F46] bg-[#27272A]/50 backdrop-blur-sm">
+                {/* Section Header */}
+                <div className="flex items-center justify-between mb-8 pb-6 border-b border-[#3F3F46]">
+                  <span className="text-xs font-bold text-primary tracking-[0.2em] uppercase">
+                    Specialist Network
+                  </span>
+                  <Zap size={16} className="text-primary" />
+                </div>
+
+                {/* Specialist Items */}
+                <ul className="space-y-6">
+                  {specialistItems.map((item, index) => (
+                    <motion.li
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                      transition={{
+                        delay: 0.4 + index * 0.1,
+                        duration: 0.5,
+                        ease: [0.22, 1, 0.36, 1] as const,
+                      }}
+                      className="group flex items-center gap-4 cursor-default"
+                    >
+                      <span className="text-primary text-lg opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                        {item.icon}
+                      </span>
+                      <span className="text-lg text-[#FAFAFA] group-hover:text-primary transition-colors duration-300">
+                        {item.title}
+                      </span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Currently Building Banner */}
+          <motion.div
+            variants={itemVariants}
+            className="relative overflow-hidden group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="relative p-8 md:p-10 border border-primary/30 bg-[#27272A]">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div className="flex items-center gap-6">
+                  <div className="flex items-center justify-center w-12 h-12 border border-primary/50 rounded-full">
+                    <Zap size={20} className="text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-primary tracking-[0.2em] uppercase mb-1">
+                      Currently Building
+                    </p>
+                    <p className="text-xl md:text-2xl text-[#FAFAFA] font-medium leading-tight">
+                      The future of AI-powered business software.
+                    </p>
+                  </div>
+                </div>
+                <div className="hidden md:block">
+                  <p className="text-sm text-[#A1A1AA] italic">
+                    Whether you hire us or not.
+                  </p>
+                </div>
+              </div>
+            </div>
+            {/* Animated bottom border */}
+            <motion.div
+              className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-primary via-primary to-transparent origin-left"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
+            />
+          </motion.div>
+
+          {/* Decorative Footer Element */}
+          <motion.div
+            variants={itemVariants}
+            className="flex items-center justify-between pt-8 border-t border-[#3F3F46]"
+          >
+            <span className="text-xs text-[#52525B] tracking-[0.2em] uppercase">
+              Est. 2026 — QenixLabs
+            </span>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-xs text-[#52525B] tracking-wider">AVAILABLE FOR PROJECTS</span>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )
