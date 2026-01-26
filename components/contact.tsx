@@ -6,13 +6,53 @@ import { motion } from "framer-motion"
 
 export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null
+    message: string
+  }>({ type: null, message: "" })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    setIsSubmitting(false)
-    alert("Message sent! We'll be in touch within 24 hours.")
+    setSubmitStatus({ type: null, message: "" })
+
+    const form = e.target as HTMLFormElement
+    const formData = new FormData(form)
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      company: formData.get("company") as string,
+      message: formData.get("message") as string,
+    }
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send message")
+      }
+
+      setSubmitStatus({
+        type: "success",
+        message: "Message sent! We'll be in touch within 24 hours.",
+      })
+      form.reset()
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: error instanceof Error ? error.message : "Failed to send message. Please try again.",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -113,6 +153,21 @@ export function ContactSection() {
                 >
                   {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
                 </motion.button>
+
+                {/* Status Messages */}
+                {submitStatus.type && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`p-4 rounded-md text-center ${
+                      submitStatus.type === "success"
+                        ? "bg-green-500/20 text-green-400 border border-green-500/50"
+                        : "bg-red-500/20 text-red-400 border border-red-500/50"
+                    }`}
+                  >
+                    {submitStatus.message}
+                  </motion.div>
+                )}
               </div>
             </form>
           </motion.div>
