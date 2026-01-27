@@ -67,7 +67,7 @@ export function ContactSection() {
             transition={{ duration: 0.6 }}
           >
             <span className="text-sm font-bold text-primary uppercase tracking-widest">CONTACT</span>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold uppercase tracking-tighter text-[#FAFAFA] leading-[0.9] mt-4 mb-6 md:mb-8">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl  font-bold uppercase tracking-tighter text-[#FAFAFA] leading-[0.9] mt-4 mb-6 md:mb-8">
               LET'S
               <br />
               <span className="text-primary">TALK</span>

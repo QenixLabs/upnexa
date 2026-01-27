@@ -12,7 +12,7 @@ const spaceGrotesk = Space_Grotesk({
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
 
 export const metadata: Metadata = {
-  title: "QENIXLABS | Custom Software Development & AI Automation",
+  title: "Qenix Labs | Custom Software Development & AI Automation",
   description: "Enterprise platforms that eliminate chaos. AI agents that automate the boring stuff. Custom systems built for YOUR workflow.",
   generator: "v0.app",
   keywords: [

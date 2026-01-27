@@ -61,7 +61,7 @@ export function PricingSection() {
             <span className="text-primary">PRICING</span>
           </h2>
           <p className="text-base md:text-lg text-[#A1A1AA] mt-6 max-w-2xl mx-auto">
-            No sales calls. No hourly billing. No surprises. Just clear pricing for serious projects.
+            Ballpark pricing to help you plan your budget. No sales calls. No hourly billing. No surprises.
           </p>
         </motion.div>
 
@@ -153,7 +153,7 @@ export function PricingSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-sm text-[#71717A] text-center mt-12 max-w-2xl mx-auto"
         >
-          Pricing varies based on project scope and complexity. We'll provide a detailed fixed-price proposal after our initial consultation.
+          <span className="text-primary font-semibold">Ballpark pricing</span> — actual quotes vary based on project scope and complexity. We'll provide a detailed fixed-price proposal after our initial consultation.
         </motion.p>
       </div>
     </section>

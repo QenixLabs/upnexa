@@ -56,7 +56,7 @@ const faqs = [
   },
   {
     question: "WHAT'S YOUR MINIMUM ENGAGEMENT?",
-    answer: "$3.6K-6K minimum for new projects. This ensures we can deliver proper attention and outcomes. For exploratory work, our technical consultation is $180.",
+    answer: "Ballpark pricing starts at $3.6K-6K for new projects. Actual quotes vary based on scope. This ensures we can deliver proper attention and outcomes. For exploratory work, our technical consultation is $180.",
   },
   {
     question: "CAN I SEE YOUR CODE?",
@@ -122,7 +122,7 @@ export default function PricingPage() {
               <span className="text-primary">PRICING</span>
             </h1>
             <p className="text-base md:text-lg text-[#A1A1AA] mt-6 max-w-2xl mx-auto">
-              No sales calls. No hourly billing. No surprises. Just clear pricing for serious projects.
+              Ballpark pricing to help you plan your budget. No sales calls. No hourly billing. No surprises.
             </p>
           </motion.div>
         </div>
@@ -222,7 +222,7 @@ export default function PricingPage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-sm text-[#71717A] text-center mt-12 max-w-2xl mx-auto"
           >
-            Pricing varies based on project scope and complexity. We'll provide a detailed fixed-price proposal after our initial consultation.
+            <span className="text-primary font-semibold">Ballpark pricing</span> — actual quotes vary based on project scope and complexity. We'll provide a detailed fixed-price proposal after our initial consultation.
           </motion.p>
         </div>
       </section>
