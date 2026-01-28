@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { Search, LayoutGrid, Code2, Rocket } from "lucide-react"
 
 const steps = [
   {
@@ -13,6 +14,7 @@ const steps = [
       "Identify high-ROI AI opportunities",
       "Honest feasibility assessment",
     ],
+    icon: Search,
   },
   {
     week: "WEEK 1-2",
@@ -24,6 +26,7 @@ const steps = [
       "Human-AI workflow mapping",
       "Fixed-price proposal",
     ],
+    icon: LayoutGrid,
   },
   {
     week: "WEEKS 3-12",
@@ -35,6 +38,7 @@ const steps = [
       "Staging environment to test",
       "Transparent scope tracking",
     ],
+    icon: Code2,
   },
   {
     week: "WEEK 12+",
@@ -46,6 +50,7 @@ const steps = [
       "Complete documentation",
       "30 days post-launch support",
     ],
+    icon: Rocket,
   },
 ]
 
@@ -70,7 +75,7 @@ export function ProcessSection() {
         </motion.div>
 
         {/* Process Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#3F3F46]">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, index) => (
             <motion.div
               key={step.title}
@@ -78,34 +83,56 @@ export function ProcessSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-[#09090B] p-8 md:p-10 hover:bg-primary transition-colors duration-300"
+              className="group relative border border-[#3F3F46] bg-[#09090B]/80 hover:border-primary/40 hover:bg-[#18181B] transition-all duration-500 overflow-hidden"
             >
-              {/* Week Badge */}
-              <span className="inline-block px-3 py-1 text-xs font-bold text-primary group-hover:text-black border-2 border-primary group-hover:border-black uppercase tracking-widest mb-6 transition-colors duration-300">
-                {step.week}
-              </span>
+              {/* Subtle gradient glow on hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent" />
+              </div>
 
-              {/* Title */}
-              <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tighter text-[#FAFAFA] group-hover:text-black mb-2 transition-colors duration-300">
-                {step.title}
-              </h3>
+              {/* Corner accent on hover */}
+              <div className="absolute top-0 right-0 w-12 h-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute top-0 right-0 w-6 h-px bg-primary/40" />
+                <div className="absolute top-0 right-0 w-px h-6 bg-primary/40" />
+              </div>
 
-              {/* Subtitle */}
-              <p className="text-base text-[#A1A1AA] group-hover:text-black/70 mb-6 transition-colors duration-300">
-                {step.subtitle}
-              </p>
+              {/* Content */}
+              <div className="relative p-6 md:p-8">
+                {/* Icon */}
+                <div className="inline-flex items-center justify-center w-12 h-12 mb-4 border border-[#3F3F46] bg-[#18181B] group-hover:border-primary/30 group-hover:bg-primary/5 transition-all duration-300">
+                  <step.icon className="w-5 h-5 text-primary" />
+                </div>
 
-              {/* Details */}
-              <ul className="space-y-2">
-                {step.details.map((detail, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <span className="text-primary group-hover:text-black transition-colors duration-300">→</span>
-                    <span className="text-sm text-[#A1A1AA] group-hover:text-black/80 transition-colors duration-300">
-                      {detail}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+                {/* Week Badge */}
+                <span className="inline-block px-3 py-1 text-xs font-bold text-primary border border-primary/30 bg-primary/5 uppercase tracking-widest mb-6">
+                  {step.week}
+                </span>
+
+                {/* Title */}
+                <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tighter text-[#FAFAFA] mb-2">
+                  {step.title}
+                </h3>
+
+                {/* Subtitle */}
+                <p className="text-base text-[#71717A] group-hover:text-[#A1A1AA] mb-6 transition-colors duration-300">
+                  {step.subtitle}
+                </p>
+
+                {/* Details */}
+                <ul className="space-y-2">
+                  {step.details.map((detail, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-primary">→</span>
+                      <span className="text-sm text-[#71717A]">
+                        {detail}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Bottom progress line */}
+              <div className="absolute bottom-0 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-700" />
             </motion.div>
           ))}
         </div>

@@ -55,7 +55,7 @@ export function WorkPreview() {
         </motion.div>
 
         {/* Work Preview Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#3F3F46] mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {featuredWork.map((work, index) => (
             <motion.div
               key={work.number}
@@ -63,53 +63,78 @@ export function WorkPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`group bg-[#09090B] p-6 md:p-8 hover:bg-primary transition-colors duration-300 h-full flex flex-col ${work.isAI ? "ring-1 ring-primary/50" : ""}`}
+              className={`group relative border border-[#3F3F46] bg-[#09090B]/80 hover:border-primary/40 hover:bg-[#18181B] transition-all duration-500 overflow-hidden h-full flex flex-col ${work.isAI ? "ring-1 ring-primary/20" : ""}`}
             >
-              {/* Header */}
-              <div className="flex items-start gap-3 mb-4 md:mb-6">
-                <span className="text-2xl md:text-3xl font-bold text-[#27272A] group-hover:text-black/20 leading-none tracking-tighter transition-colors duration-300 flex-shrink-0">
-                  {work.number}
-                </span>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
-                    <h3 className="text-base md:text-lg font-bold uppercase tracking-tighter text-[#FAFAFA] group-hover:text-black transition-colors duration-300">
-                      {work.title}
-                    </h3>
-                    {work.isAI && (
-                      <span className="text-[10px] font-bold text-primary group-hover:text-black bg-primary/10 group-hover:bg-black/10 px-2 py-0.5 uppercase tracking-wider">
-                        AI
-                      </span>
-                    )}
+              {/* Subtle gradient glow on hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent" />
+              </div>
+
+              {/* Corner accent on hover */}
+              <div className="absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute top-0 right-0 w-8 h-px bg-primary/40" />
+                <div className="absolute top-0 right-0 w-px h-8 bg-primary/40" />
+              </div>
+
+              {/* Content */}
+              <div className="relative p-6 md:p-8 flex flex-col h-full">
+                {/* Header */}
+                <div className="flex items-start gap-3 mb-4 md:mb-6">
+                  <span className="text-2xl md:text-3xl font-bold text-[#27272A] group-hover:text-primary/30 leading-none tracking-tighter transition-colors duration-500 flex-shrink-0">
+                    {work.number}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="text-base md:text-lg font-bold uppercase tracking-tighter text-[#FAFAFA]">
+                        {work.title}
+                      </h3>
+                      {work.isAI && (
+                        <span className="text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 uppercase tracking-wider border border-primary/20">
+                          AI
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs text-primary uppercase tracking-wider">
+                      {work.subtitle}
+                    </p>
                   </div>
-                  <p className="text-xs text-primary group-hover:text-black/70 uppercase tracking-wider transition-colors duration-300">
-                    {work.subtitle}
-                  </p>
+                </div>
+
+                {/* Category Badge */}
+                <div className="mb-4">
+                  <span className="inline-block px-2 py-1 text-xs font-bold uppercase bg-[#18181B] text-[#71717A] border border-[#3F3F46]">
+                    {work.category}
+                  </span>
+                </div>
+
+                {/* Metrics */}
+                <div className="grid grid-cols-2 gap-2 mb-4 p-3 border border-[#3F3F46] bg-[#0D0D0F]">
+                  {work.metrics.map((metric, i) => (
+                    <div key={i} className="text-center">
+                      <div className="text-base md:text-lg font-bold text-primary tracking-tighter">
+                        {metric.value}
+                      </div>
+                      <div className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider break-words">
+                        {metric.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Tech Stack */}
+                <div className="pt-4 border-t border-[#3F3F46] mt-auto">
+                  <div className="flex flex-wrap gap-2">
+                    {work.tech.split(", ").map((tech) => (
+                      <span key={tech} className="text-xs text-[#71717A] bg-[#18181B] border border-[#27272A] px-2 py-1">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              {/* Metrics */}
-              <div className="grid grid-cols-2 gap-2 mb-4 p-3 border-2 border-[#3F3F46] group-hover:border-black/20 transition-colors duration-300">
-                {work.metrics.map((metric, i) => (
-                  <div key={i} className="text-center">
-                    <div className="text-base md:text-lg font-bold text-primary group-hover:text-black tracking-tighter transition-colors duration-300">
-                      {metric.value}
-                    </div>
-                    <div className="text-[10px] font-bold text-[#A1A1AA] group-hover:text-black/60 uppercase tracking-wider transition-colors duration-300 break-words">
-                      {metric.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Tech Stack */}
-              <div className="pt-4 border-t-2 border-[#3F3F46] group-hover:border-black/20 transition-colors duration-300 mt-auto">
-                <span className="text-xs font-bold text-[#A1A1AA] group-hover:text-black/60 uppercase tracking-widest transition-colors duration-300">
-                  STACK:
-                </span>
-                <span className="text-xs font-mono text-[#FAFAFA] group-hover:text-black ml-2 transition-colors duration-300 break-words">
-                  {work.tech}
-                </span>
-              </div>
+              {/* Bottom progress line */}
+              <div className="absolute bottom-0 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-700" />
             </motion.div>
           ))}
         </div>
@@ -124,7 +149,7 @@ export function WorkPreview() {
         >
           <Link
             href="/work"
-            className="inline-flex items-center justify-center h-14 px-12 bg-transparent border-2 border-[#3F3F46] text-[#FAFAFA] font-bold uppercase tracking-tighter text-lg hover:border-primary hover:text-primary hover:scale-105 active:scale-95 transition-all"
+            className="inline-flex items-center justify-center h-14 px-12 bg-transparent border-2 border-[#3F3F46] text-[#FAFAFA] font-bold uppercase tracking-tighter text-lg hover:border-primary hover:text-primary hover:shadow-[0_0_30px_rgba(220,20,60,0.15)] transition-all duration-300"
           >
             VIEW ALL WORK
           </Link>

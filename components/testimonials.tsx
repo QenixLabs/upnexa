@@ -28,16 +28,28 @@ export function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="border-2 border-[#3F3F46] p-12 md:p-16 text-center"
+          className="group relative border border-[#3F3F46] bg-[#09090B]/80 p-12 md:p-16 text-center hover:border-primary/40 hover:bg-[#18181B] transition-all duration-500"
         >
-          <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#FAFAFA] mb-6">
+          {/* Corner accents */}
+          <div className="absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+            <div className="absolute top-0 right-0 w-8 h-px bg-primary/40" />
+            <div className="absolute top-0 right-0 w-px h-8 bg-primary/40" />
+          </div>
+
+          {/* Quote icon */}
+          <div className="text-4xl text-primary/20 font-serif mb-6">"</div>
+
+          <p className="text-xl md:text-2xl lg:text-3xl font-bold text-[#FAFAFA] mb-6 uppercase tracking-tighter">
             Client testimonials coming soon
           </p>
-          <p className="text-base md:text-lg text-[#A1A1AA] max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-[#71717A] max-w-2xl mx-auto">
             We're reaching out to our past clients to collect their experiences working with us.
             <br />
             Check back soon for real feedback from real projects.
           </p>
+
+          {/* Bottom progress line */}
+          <div className="absolute bottom-0 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-700" />
         </motion.div>
       </div>
     </section>

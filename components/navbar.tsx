@@ -69,8 +69,10 @@ export function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-[#09090B]/90 backdrop-blur-sm border-b-2 border-[#3F3F46]" : "bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled
+            ? "bg-[#09090B]/80 backdrop-blur-md border-b border-[#3F3F46]/50"
+            : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl xl:max-w-7xl 2xl:max-w-6xl mx-auto px-4 md:px-8">
@@ -102,12 +104,13 @@ export function Navbar() {
                   onMouseEnter={() => link.dropdown && setHoveredDropdown(link.label)}
                   onMouseLeave={() => setHoveredDropdown(null)}
                 >
-                  <motion.div className="flex items-center gap-1">
+                  <motion.div className="flex items-center gap-1 group">
                     <a
                       href={link.href}
-                      className="text-sm font-bold text-[#A1A1AA] hover:text-primary transition-colors uppercase tracking-wider"
+                      className="relative text-sm font-bold text-[#A1A1AA] hover:text-primary transition-colors uppercase tracking-wider py-2"
                     >
                       {link.label}
+                      <span className="absolute bottom-0 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
                     </a>
                     {link.dropdown && (
                       <ChevronDown
@@ -127,13 +130,13 @@ export function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-2 min-w-[200px] bg-[#09090B] border-2 border-[#3F3F46] shadow-lg"
+                        className="absolute top-full left-0 mt-2 min-w-[200px] bg-[#09090B]/95 backdrop-blur-md border border-[#3F3F46] shadow-lg shadow-primary/5"
                       >
                         {link.dropdown.map((item) => (
                           <a
                             key={item.label}
                             href={item.href}
-                            className="block px-4 py-3 text-sm font-bold text-[#A1A1AA] hover:text-primary hover:bg-[#27272A] transition-colors uppercase tracking-wider whitespace-nowrap"
+                            className="block px-4 py-3 text-sm font-bold text-[#A1A1AA] hover:text-primary hover:bg-[#18181B] transition-colors uppercase tracking-wider whitespace-nowrap"
                           >
                             {item.label}
                           </a>
@@ -149,9 +152,9 @@ export function Navbar() {
             <div className="hidden lg:block">
               <motion.a
                 href="/#contact"
-                className="inline-flex items-center justify-center h-12 px-8 bg-primary text-black font-bold uppercase tracking-tighter text-sm hover:scale-105 active:scale-95 transition-transform"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center justify-center h-12 px-8 bg-primary text-black font-bold uppercase tracking-tighter text-sm hover:shadow-[0_0_30px_rgba(220,20,60,0.3)] transition-all duration-300"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 LET'S TALK
               </motion.a>

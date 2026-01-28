@@ -79,14 +79,27 @@ export function ContactSection() {
 
             {/* Contact Info */}
             <div className="space-y-4 md:space-y-6">
-              <div className="flex items-center gap-3 md:gap-4">
-                <span className="text-primary text-xl md:text-2xl flex-shrink-0">→</span>
-                <a
-                  href="mailto:info@qenixlabs.com"
-                  className="text-base md:text-xl lg:text-2xl font-bold text-[#FAFAFA] hover:text-primary transition-colors uppercase tracking-tighter break-all"
-                >
-                  INFO@QENIXLABS.COM
-                </a>
+              <div className="group relative p-6 border border-[#3F3F46] bg-[#0D0D0F] hover:border-primary/30 transition-all duration-300">
+                {/* Corner brackets */}
+                <div className="absolute -top-px -left-px w-4 h-4 border-t border-l border-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute -bottom-px -right-px w-4 h-4 border-b border-r border-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center justify-center w-12 h-12 border border-primary/30 bg-primary/5">
+                    <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-xs text-[#71717A] uppercase tracking-wider mb-1">Email Us</div>
+                    <a
+                      href="mailto:info@qenixlabs.com"
+                      className="text-base md:text-lg font-bold text-[#FAFAFA] hover:text-primary transition-colors uppercase tracking-tighter break-all"
+                    >
+                      INFO@QENIXLABS.COM
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -97,8 +110,19 @@ export function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="relative"
           >
-            <form onSubmit={handleSubmit} className="border-2 border-[#3F3F46] p-4 md:p-8 lg:p-12">
+            {/* Corner bracket accents */}
+            <div className="absolute -top-4 -right-4 w-16 h-16">
+              <div className="absolute top-0 right-0 w-8 h-px bg-primary/40" />
+              <div className="absolute top-0 right-0 w-px h-8 bg-primary/40" />
+            </div>
+            <div className="absolute -bottom-4 -left-4 w-16 h-16">
+              <div className="absolute bottom-0 left-0 w-8 h-px bg-primary/40" />
+              <div className="absolute bottom-0 left-0 w-px h-8 bg-primary/40" />
+            </div>
+
+            <form onSubmit={handleSubmit} className="relative border border-[#3F3F46] bg-[#09090B]/80 p-6 md:p-10 lg:p-12 hover:border-primary/40 hover:bg-[#18181B] transition-all duration-500">
               <div className="space-y-6 md:space-y-8">
                 {/* Name Input */}
                 <div>
@@ -147,9 +171,9 @@ export function ContactSection() {
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full h-14 md:h-16 lg:h-20 bg-primary text-black font-bold uppercase tracking-tighter text-base md:text-lg lg:text-xl disabled:opacity-50"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  className="w-full h-14 md:h-16 lg:h-20 bg-primary text-black font-bold uppercase tracking-tighter text-base md:text-lg lg:text-xl disabled:opacity-50 hover:shadow-[0_0_40px_rgba(220,20,60,0.3)] transition-shadow duration-300"
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
                 >
                   {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
                 </motion.button>
@@ -169,6 +193,9 @@ export function ContactSection() {
                   </motion.div>
                 )}
               </div>
+
+              {/* Bottom progress line */}
+              <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-primary via-primary/50 to-transparent opacity-50" />
             </form>
           </motion.div>
         </div>

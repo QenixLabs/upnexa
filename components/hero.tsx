@@ -33,7 +33,7 @@ export function HeroSection() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
     },
   }
 
@@ -43,7 +43,7 @@ export function HeroSection() {
       opacity: 1,
       y: 0,
       filter: "blur(0px)",
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
     },
   }
 
@@ -97,6 +97,9 @@ export function HeroSection() {
       {/* Decorative corner elements */}
       <div className="absolute top-0 left-0 w-48 h-48 border-l-2 border-t-2 border-primary/15" />
       <div className="absolute bottom-0 right-0 w-48 h-48 border-r-2 border-b-2 border-primary/15" />
+
+      {/* Radial glow behind content */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative w-full px-6 md:px-12 py-24 md:py-32">
         <div className="max-w-7xl mx-auto">
@@ -176,7 +179,7 @@ export function HeroSection() {
               <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 pt-4">
                 <motion.a
                   href="/#contact"
-                  className="group inline-flex items-center justify-center gap-3 h-14 md:h-16 px-8 md:px-10 bg-primary text-black font-bold uppercase tracking-tighter text-sm md:text-base relative overflow-hidden"
+                  className="group inline-flex items-center justify-center gap-3 h-14 md:h-16 px-8 md:px-10 bg-primary text-black font-bold uppercase tracking-tighter text-sm md:text-base relative overflow-hidden hover:shadow-[0_0_40px_rgba(220,20,60,0.3)] transition-shadow duration-500"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -191,7 +194,7 @@ export function HeroSection() {
                 </motion.a>
                 <motion.a
                   href="/work"
-                  className="inline-flex items-center justify-center h-14 md:h-16 px-8 md:px-10 border-2 border-[#3F3F46] text-[#FAFAFA] font-bold uppercase tracking-tighter text-sm md:text-base hover:border-primary hover:text-primary transition-all duration-300"
+                  className="inline-flex items-center justify-center h-14 md:h-16 px-8 md:px-10 border-2 border-[#3F3F46] text-[#FAFAFA] font-bold uppercase tracking-tighter text-sm md:text-base hover:border-primary hover:text-primary hover:shadow-[0_0_30px_rgba(220,20,60,0.15)] transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -202,10 +205,17 @@ export function HeroSection() {
 
             {/* Right column - Metrics grid */}
             <motion.div variants={itemVariants} className="lg:col-span-5 relative">
-              {/* Decorative element */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 border-r-2 border-t-2 border-primary/20" />
+              {/* Enhanced corner bracket accents */}
+              <div className="absolute -top-4 -right-4 w-16 h-16">
+                <div className="absolute top-0 right-0 w-8 h-px bg-primary/40" />
+                <div className="absolute top-0 right-0 w-px h-8 bg-primary/40" />
+              </div>
+              <div className="absolute -bottom-4 -left-4 w-16 h-16">
+                <div className="absolute bottom-0 left-0 w-8 h-px bg-primary/40" />
+                <div className="absolute bottom-0 left-0 w-px h-8 bg-primary/40" />
+              </div>
 
-              <div className="relative p-8 border border-[#3F3F46] bg-[#27272A]/30 backdrop-blur-sm">
+              <div className="group relative p-8 border border-[#3F3F46] bg-[#09090B]/80 hover:border-primary/40 hover:bg-[#18181B] transition-all duration-500">
                 <div className="flex items-center justify-between mb-8 pb-6 border-b border-[#3F3F46]">
                   <span className="text-xs font-bold text-primary tracking-[0.2em] uppercase">
                     Impact Metrics
@@ -226,21 +236,30 @@ export function HeroSection() {
                       transition={{
                         delay: 0.6 + index * 0.1,
                         duration: 0.5,
-                        ease: [0.22, 1, 0.36, 1],
+                        ease: [0.22, 1, 0.36, 1] as const,
                       }}
-                      className="group flex items-center gap-4 p-4 border border-[#3F3F46] hover:border-primary/30 transition-colors duration-300"
+                      className="group relative p-6 border border-[#3F3F46] bg-[#18181B]/50 hover:border-primary/30 transition-all duration-300"
                     >
-                      <div className="flex items-center justify-center w-12 h-12 border border-primary/30 rounded-full group-hover:border-primary group-hover:bg-primary/10 transition-all duration-300">
-                        <metric.icon size={20} className="text-primary" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="text-2xl md:text-3xl font-bold text-[#FAFAFA] mb-1">
-                          {metric.value}
+                      {/* Animated corner brackets */}
+                      <div className="absolute -top-px -left-px w-4 h-4 border-t border-l border-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute -bottom-px -right-px w-4 h-4 border-b border-r border-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                      <div className="flex items-center gap-4">
+                        <div className="flex items-center justify-center w-12 h-12 border border-primary/30 bg-primary/5 group-hover:border-primary/60 transition-all duration-300">
+                          <metric.icon size={20} className="text-primary" />
                         </div>
-                        <div className="text-xs text-[#A1A1AA] uppercase tracking-wider">
-                          {metric.label}
+                        <div className="flex-1">
+                          <div className="text-2xl md:text-3xl font-bold text-[#FAFAFA] mb-1">
+                            {metric.value}
+                          </div>
+                          <div className="text-xs text-[#71717A] uppercase tracking-wider">
+                            {metric.label}
+                          </div>
                         </div>
                       </div>
+
+                      {/* Bottom progress line on hover */}
+                      <div className="absolute bottom-0 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-700" />
                     </motion.div>
                   ))}
                 </div>
@@ -249,7 +268,7 @@ export function HeroSection() {
                 <motion.div
                   initial={{ width: 0 }}
                   animate={isInView ? { width: "100%" } : { width: 0 }}
-                  transition={{ duration: 1.5, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 1.5, delay: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
                   className="h-px bg-gradient-to-r from-primary via-primary to-transparent mt-8"
                 />
               </div>

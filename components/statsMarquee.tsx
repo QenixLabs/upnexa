@@ -13,7 +13,11 @@ const stats = [
 
 export function StatsMarquee() {
   return (
-    <section className="py-8 bg-primary border-y-2 border-black">
+    <section className="relative py-8 bg-primary border-y-2 border-black overflow-hidden">
+      {/* Gradient masks for smooth fade */}
+      <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-primary to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-primary to-transparent z-10 pointer-events-none" />
+
       <Marquee speed={80} gradient={false} autoFill>
         {stats.map((stat, index) => (
           <div key={index} className="flex items-center gap-4 md:gap-6 lg:gap-8 mx-2 md:mx-4 lg:mx-8">

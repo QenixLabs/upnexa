@@ -13,8 +13,24 @@
   --accent: #dc143c;
   --accent-foreground: #000000;
 
+  /* Primary with depth layers */
+  --primary-dim: rgba(220, 20, 60, 0.08);
+  --primary-glow: rgba(220, 20, 60, 0.25);
+  --primary-subtle: rgba(220, 20, 60, 0.15);
+
+  /* Surface elevations */
+  --surface-elevated: #18181b;
+  --surface-higher: #27272a;
+  --surface-subtle: #0d0d0f;
+
+  /* Text hierarchy */
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-tertiary: #71717a;
+
   /* Structural */
   --border: #3f3f46;
+  --border-subtle: #27272a;
   --card: #09090b;
   --card-foreground: #fafafa;
 
@@ -54,7 +70,25 @@
   --muted-foreground: #a1a1aa;
   --accent: #dc143c;
   --accent-foreground: #000000;
+
+  /* Primary with depth layers */
+  --primary-dim: rgba(220, 20, 60, 0.08);
+  --primary-glow: rgba(220, 20, 60, 0.25);
+  --primary-subtle: rgba(220, 20, 60, 0.15);
+
+  /* Surface elevations */
+  --surface-elevated: #18181b;
+  --surface-higher: #27272a;
+  --surface-subtle: #0d0d0f;
+
+  /* Text hierarchy */
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-tertiary: #71717a;
+
+  /* Structural */
   --border: #3f3f46;
+  --border-subtle: #27272a;
   --card: #09090b;
   --card-foreground: #fafafa;
   --primary: #dc143c;
@@ -123,6 +157,19 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Extended surface colors */
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-higher: var(--surface-higher);
+  --color-surface-subtle: var(--surface-subtle);
+
+  /* Extended text colors */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+
+  /* Extended border colors */
+  --color-border-subtle: var(--border-subtle);
 }
 
 @layer base {
@@ -176,6 +223,71 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #dc143c;
+}
+
+/* Card Pattern Utilities */
+.card-primary {
+  @apply relative border border-[#3F3F46] bg-[#09090B]/80 overflow-hidden;
+}
+
+.card-primary:hover {
+  @apply border-primary/40 bg-[#18181B];
+}
+
+.card-metric {
+  @apply relative p-6 border border-[#3F3F46] bg-[#18181B]/50;
+}
+
+.card-metric:hover {
+  @apply border-primary/30;
+}
+
+.card-feature {
+  @apply relative p-6 border border-[#27272A] bg-[#0D0D0F];
+}
+
+.card-feature:hover {
+  @apply border-[#3F3F46];
+}
+
+/* Corner bracket accents */
+.corner-bracket-tl::before {
+  content: '';
+  @apply absolute -top-px -left-px w-4 h-4 border-t border-l border-primary/60;
+}
+
+.corner-bracket-br::after {
+  content: '';
+  @apply absolute -bottom-px -right-px w-4 h-4 border-b border-r border-primary/60;
+}
+
+/* Gradient masks for marquee */
+.marquee-mask-left {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 40px rgba(220, 20, 60, 0.15);
+}
+
+.glow-primary-strong {
+  box-shadow: 0 0 60px rgba(220, 20, 60, 0.25);
+}
+
+/* Progress line animation */
+@keyframes progress-line {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.progress-line {
+  animation: progress-line 1.5s ease-out forwards;
 }
 
 /* Respect reduced motion */
