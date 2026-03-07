@@ -9,6 +9,13 @@ export interface Project {
   metrics: { value: string; label: string }[]
   tech: string
   isAI?: boolean
+  isLocal?: boolean
+  detailedContent?: string
+  image?: string
+  carousels?: string[]
+  tags?: string[]
+  liveUrl?: string
+  githubUrl?: string
 }
 
 export const projects: Project[] = [
@@ -87,6 +94,86 @@ export const projects: Project[] = [
     ],
     tech: "OpenAI, LangChain, Next.js",
     isAI: true,
+  },
+  {
+    name: "Etrends Technology",
+    id: "etrends-client-order-system",
+    api: "",
+    slug: "etrends-technology",
+    category: "SHIPPED",
+    subtitle: "Client & Order Intelligence System",
+    challenge: "GRC company struggling with Excel chaos for client and order management—info scattered across teams, missed deadlines, and no visibility into financial pulse.",
+    metrics: [
+      { value: "15+", label: "HRS SAVED/WEEK" },
+      { value: "GLOBAL", label: "OPERATIONS" },
+      { value: "REAL-TIME", label: "ANALYTICS" },
+    ],
+    tech: "Next.js, NestJS, MongoDB, Redis, RTK Query",
+    isLocal: true,
+    image: "",
+    tags: ["Next.js", "NestJS", "MongoDB", "Redis", "RTK Query", "Dashboard", "Automation"],
+    detailedContent: `# The Brain Behind Etrends' Global GRC Client Operations
+
+Ever dealt with a business where tracking clients and orders feels like wrestling with half a dozen wild spreadsheets—and losing? That was Etrends Technology before we upgraded their workflow. Their old process was pure Excel chaos: info scattered across teams, deadlines sneaking up, and no clean picture of the company's financial pulse. Reporting became a hassle. Payment follow-ups? Missed more than anyone liked to admit.
+
+So we got to work, building a single, intelligent hub that replaced clunky spreadsheets with real-time dashboards, automation, and smooth collaboration. The improvement? Immediate and a little bit breathtaking.
+
+## 🌐 About Etrends
+
+If you're in the GRC (Governance, Risk & Compliance) space, you've heard of Etrends. With 10+ years under their belt and a flagship Laser® product line, this team helps companies navigate risk, audits, compliance, and controls—stretching across India, the UK, US, Australia, Africa, and the Middle East.
+
+## 🧠 Project at a Glance: The New Client & Order Intelligence System
+
+Here's the pitch: One platform, built on **Next.js, NestJS, MongoDB, Redis, and RTK Query** that brings every piece of the puzzle—onboarding, payments, AMC renewals, even deep analytics—onto a single dashboard. No more siloed files, no more manual reminders. Just insight, clarity, and peace of mind.
+
+## 🔍 Core Features (That Actually Change the Game)
+
+### 👤 All-in-One Client Management
+- Register new clients with rich profiles and points of contact
+- Every client dashboard at-a-glance: orders, active licenses, modules, AMC status
+- See pending payments, revenue metrics, and a record of all agreements
+
+### 📦 Laser-Focused Order & Payment Tracking
+- Log orders and follow-ups, split by service details
+- Track milestone payments, custom add-ons, all in one feed
+- A central, honest view of pending payments across every client
+
+### 🔁 AMC Lifecycle on Autopilot
+- See upcoming, due, and overdue AMCs (as they happen, not after)
+- One-click updates for payments, receipts, or agreements
+- Automated reminders—agreement expiries, due AMCs, and everything in-between
+
+### 📬 Communication—All Built In
+- Email composer with templates and custom messages
+- Client AMCs and agreement alerts sent directly—no clumsy mail merges
+- Smart follow-ups, scheduled and forgetproof
+
+### 📊 Analytics That Matter
+- Real-time stats: revenue, billing, collections—down to products and industries
+- AMC collected vs expected, new business vs renewal
+- Filter, sort, and download reports—bye-bye, tedious number crunching
+
+### ⚙️ Automation & Scheduling
+- Redis-powered background jobs: create payment plans, update AMCs, trigger reminders
+- All the repeat work handled behind the scenes so you can focus on growth
+
+## 🛠️ The Tech Stack
+
+**Frontend:** Next.js, TypeScript, ShadCN, Tailwind CSS, RTK Query
+**Backend:** NestJS, MongoDB, Redis
+**Automation & Infra:** Redis Schedulers, a custom email system, dynamic reporting modules
+
+## 🧩 Outcome
+
+> "The Client & Order Intelligence System has replaced spreadsheet chaos with a robust, collaborative platform that centralizes client data, streamlines operations, and unlocks deep insights—dramatically reducing overhead and missed opportunities."
+
+The result? Centralized insight, fewer missed payments, and hours saved every week. If you've ever lost sleep worrying about "Did we miss that deadline?"—this system puts those days behind you.
+
+## Why It Matters
+
+Sometimes, the right platform doesn't just ease the workload—it opens new doors. For Etrends, this shift was about more than cleaning up processes. It meant unlocking the confidence to scale, letting the team focus on what they do best.
+
+And honestly, who ever missed those old spreadsheets?`,
   },
 ]
 

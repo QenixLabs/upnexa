@@ -8,6 +8,7 @@ import { Footer } from "@/components/footer"
 import { motion } from "framer-motion"
 import { ArrowLeft, ExternalLink, Github, Play, ChevronLeft, ChevronRight, X } from "lucide-react"
 import ReactMarkdown from "react-markdown"
+import { getProjectById } from "@/lib/data"
 
 interface ProjectDetail {
   _id: string
@@ -43,6 +44,27 @@ export default function ProjectDetailPage() {
   useEffect(() => {
     async function fetchProject() {
       if (!id) return
+
+      // Check if this is a local project first
+      const localProject = getProjectById(id)
+      if (localProject?.isLocal) {
+        // Use static data for local projects
+        const staticData: ProjectDetail = {
+          _id: localProject.id,
+          title: localProject.name,
+          description: localProject.challenge,
+          detailedContent: localProject.detailedContent,
+          image: localProject.image,
+          carousels: localProject.carousels,
+          tags: localProject.tags,
+          category: localProject.category,
+          liveUrl: localProject.liveUrl,
+          githubUrl: localProject.githubUrl,
+        }
+        setProject(staticData)
+        setLoading(false)
+        return
+      }
 
       try {
         setLoading(true)
@@ -241,7 +263,7 @@ export default function ProjectDetailPage() {
 
             {/* Detailed Content */}
             {project.detailedContent && (
-              <div className="prose prose-invert prose-lg max-w-none">
+              <div className="prose prose-invert prose-lg max-w-none [&_h1]:mt-12 [&_h1]:mb-6 [&_h2]:mt-10 [&_h2]:mb-5 [&_h3]:mt-8 [&_h3]:mb-4 [&_p]:mb-6 [&_p]:leading-relaxed [&_ul]:mb-6 [&_ul]:space-y-3 [&_ol]:mb-6 [&_ol]:space-y-3 [&_li]:leading-relaxed [&_blockquote]:my-8 [&_blockquote]:py-4 [&_blockquote]:px-6 [&_blockquote]:border-l-4 [&_blockquote]:border-primary [&_blockquote]:bg-[#27272A]/30 [&_blockquote]:rounded-r-lg [&_hr]:my-10 [&_img]:my-8 [&_img]:rounded-xl">
                 <ReactMarkdown>{project.detailedContent}</ReactMarkdown>
               </div>
             )}
