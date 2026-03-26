@@ -30,7 +30,7 @@ export function StickyCta() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 100 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="fixed right-0 top-1/2 -translate-y-1/2 z-40 bg-[#0F2557] text-white rounded-l-md rounded-r-none shadow-lg shadow-[#0F2557]/20 px-3 py-6 flex flex-col items-center gap-3 group cursor-pointer hover:bg-[#0d1f48] transition-colors duration-200"
+            className="fixed right-0 top-1/2 -translate-y-1/2 z-[100] bg-[#0F2557] text-white rounded-l-md rounded-r-none shadow-lg shadow-[#0F2557]/20 px-3 py-6 flex flex-col items-center gap-3 group cursor-pointer hover:bg-[#0d1f48] transition-colors duration-200"
             aria-label="Book Consultation"
           >
             <Calendar className="w-5 h-5 shrink-0 group-hover:scale-110 transition-transform duration-200" />
@@ -55,7 +55,7 @@ export function StickyCta() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.8 }}
             transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
-            className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white rounded-full shadow-lg shadow-[#25D366]/30 w-14 h-14 flex items-center justify-center hover:bg-[#20bd5a] hover:scale-110 transition-all duration-200 group relative"
+            className="fixed bottom-6 right-6 z-[100] bg-[#25D366] text-white rounded-full shadow-lg shadow-[#25D366]/30 w-14 h-14 flex items-center justify-center hover:bg-[#20bd5a] hover:scale-110 transition-all duration-200 group relative"
             aria-label="Chat on WhatsApp"
           >
             <MessageCircle className="w-6 h-6" />

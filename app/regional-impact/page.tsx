@@ -140,9 +140,9 @@ export default function RegionalImpactPage() {
   const heroInView = useInView(heroRef, { once: true, amount: 0.3 })
 
   return (
+    <>
     <main className="min-h-screen bg-white">
       <Navbar />
-      <StickyCta />
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden bg-[#0F2557]">
@@ -515,5 +515,7 @@ export default function RegionalImpactPage() {
 
       <Footer />
     </main>
+    <StickyCta />
+    </>
   )
 }

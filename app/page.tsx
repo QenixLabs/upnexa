@@ -15,21 +15,23 @@ import { StickyCta } from "@/components/stickyCta"
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <Navbar />
-      <HeroSection />
-      <StatsMarquee />
-      <AuthoritySection />
-      <ServiceDivisions />
-      <IndustriesServed />
-      <StrategicApproach />
-      <WhyChooseUs />
-      <ThoughtLeadership />
-      <CtaSection />
-      <TestimonialsSection />
-      <ContactSection />
-      <Footer />
+    <>
+      <main className="min-h-screen">
+        <Navbar />
+        <HeroSection />
+        <StatsMarquee />
+        <AuthoritySection />
+        <ServiceDivisions />
+        <IndustriesServed />
+        <StrategicApproach />
+        <WhyChooseUs />
+        <ThoughtLeadership />
+        <CtaSection />
+        <TestimonialsSection />
+        <ContactSection />
+        <Footer />
+      </main>
       <StickyCta />
-    </main>
+    </>
   )
 }
