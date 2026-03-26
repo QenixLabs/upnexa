@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 
 export function CtaSection() {
   return (
-    <section className="py-20 md:py-32 bg-primary">
+    <section className="py-20 md:py-32 bg-[#0F2557]">
       <div className="max-w-7xl xl:max-w-7xl 2xl:max-w-6xl mx-auto px-4 md:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -12,41 +12,35 @@ export function CtaSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          {/* Massive CTA Headline */}
-          <h2 className="text-[clamp(2.5rem,10vw,12rem)] font-bold uppercase tracking-tighter leading-[0.85] text-black mb-8">
-            LET'S BUILD
-            <br />
-            SOMETHING
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-8">
+            Ready to Transform Your Business?
           </h2>
 
-          <p className="text-xl md:text-2xl text-black/70 max-w-2xl mx-auto mb-12 leading-tight">
-            Not sure if AI is right for your use case? We'll tell you honestly. 30-minute call. No pitch. Just engineering assessment.
+          <p className="text-lg text-white/80 max-w-2xl mx-auto mb-12">
+            Whether you are seeking advanced cybersecurity protection, digital
+            transformation or strategic PR visibility, our team is ready to help.
+            Schedule a consultation to explore how our solutions can accelerate
+            your organization&apos;s growth.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.a
-              href="#contact"
-              className="inline-flex items-center justify-center h-16 md:h-20 px-12 md:px-16 bg-black text-primary font-bold uppercase tracking-tighter text-lg md:text-xl"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              href="/#contact"
+              className="inline-flex items-center justify-center bg-[#B8860B] text-[#0F2557] rounded-md px-10 py-4 font-semibold hover:bg-[#9A7209] transition-colors duration-300"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
-              GET AI READINESS ASSESSMENT
+              Schedule Consultation
             </motion.a>
             <motion.a
-              href="#contact"
-              className="inline-flex items-center text-black justify-center h-16 md:h-20 px-12 md:px-16 border-2 border-black font-bold uppercase tracking-tighter text-lg md:text-xl hover:bg-black hover:text-primary transition-colors duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              href="/services"
+              className="inline-flex items-center justify-center border-2 border-white/30 text-white rounded-md px-10 py-4 font-medium hover:bg-white/10 transition-colors duration-300"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
-              SEE WHAT WE CAN BUILD
+              Explore Our Services
             </motion.a>
           </div>
-
-          {/* Consultation Note */}
-          <p className="text-base text-black/60 mt-12 max-w-xl mx-auto">
-            Not ready for AI? We build custom software too. Start with a detailed technical consultation ($180, 3 hours). Get a complete project
-            blueprint. If you hire us, we credit it back.
-          </p>
         </motion.div>
       </div>
     </section>

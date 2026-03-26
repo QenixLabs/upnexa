@@ -1,51 +1,73 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Shield, Building2, GraduationCap, Cpu, Factory, Landmark } from "lucide-react"
+import {
+  Shield,
+  Building2,
+  GraduationCap,
+  Cpu,
+  Factory,
+  Landmark,
+} from "lucide-react"
 
-/*
- * REAL CLIENTS - FOR FUTURE IMPLEMENTATION WITH PERMISSION
- *
- * 1. Etrends Technologies Pvt. Ltd. (est. 2008)
- *    - Industry: GRC & Compliance Solutions
- *    - Location: Mumbai, Maharashtra
- *    - Business: Laser brand - governance, risk management, compliance software
- *    - Website: etrendscomm.com
- *
- * 2. JayaaIt Solutions (VULSPHERE project)
- *    - Industry: Enterprise Security / Vulnerability Management
- *    - Project: End-to-end vulnerability lifecycle management system
- *    - Features: 4-level approval flow, Nessus integration, asset discovery
- *
- * 3. Atharva University (formerly Atharva College of Engineering)
- *    - Industry: Education Technology
- *    - Founded: 1999, Mumbai (Malad)
- *    - Maharashtra's 1st Self-Financed Private Vertical University
- *    - 800+ students, 85% placement rate
- *    - Website: atharvauniversity.org
- *
- * 4. Mauka Education Pvt. Ltd.
- *    - Industry: EdTech / AI Soft Skills Platform
- *    - Founded: 2021, Mumbai
- *    - Product: AI-enabled soft skills education, mock interview simulator
- *    - Reach: 4000+ learners, 50+ cities, 20+ states
- *    - Website: maukaeducation.com
- *
- * TO UPDATE: Replace industries below with actual client names/logos when permission is granted
- */
-
-const clients = [
-  { name: "GRC & COMPLIANCE", type: "industry", icon: Shield },
-  { name: "ENTERPRISE SECURITY", type: "industry", icon: Building2 },
-  { name: "EDUCATION TECHNOLOGY", type: "industry", icon: GraduationCap },
-  { name: "EDTECH & AI SKILLS", type: "industry", icon: Cpu },
-  { name: "MANUFACTURING", type: "industry", icon: Factory },
-  { name: "FINTECH", type: "industry", icon: Landmark },
+const industries = [
+  {
+    name: "GRC & Compliance",
+    description: "Governance, risk management, and regulatory compliance platforms",
+    icon: Shield,
+  },
+  {
+    name: "Enterprise Security",
+    description: "Vulnerability management and enterprise security solutions",
+    icon: Building2,
+  },
+  {
+    name: "Education Technology",
+    description: "University management systems and learning platforms",
+    icon: GraduationCap,
+  },
+  {
+    name: "EdTech & AI Skills",
+    description: "AI-powered soft skills training and interview preparation",
+    icon: Cpu,
+  },
+  {
+    name: "Manufacturing",
+    description: "Industrial automation and process optimization systems",
+    icon: Factory,
+  },
+  {
+    name: "Financial Services",
+    description: "Banking, fintech, and financial data management platforms",
+    icon: Landmark,
+  },
 ]
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as const,
+    },
+  },
+}
 
 export function ClientsSection() {
   return (
-    <section id="clients" className="py-20 md:py-32 border-b-2 border-[#3F3F46]">
+    <section id="clients" className="py-20 md:py-28 bg-[#F8FAFC]">
       <div className="max-w-7xl xl:max-w-7xl 2xl:max-w-6xl mx-auto px-4 md:px-8">
         {/* Section Header */}
         <motion.div
@@ -53,62 +75,61 @@ export function ClientsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 md:mb-24 text-center"
+          className="mb-14 md:mb-20 text-center"
         >
-          <span className="text-sm font-bold text-primary uppercase tracking-widest">CLIENTS</span>
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tighter text-[#FAFAFA] leading-[0.9] mt-4">
-            TRUSTED BY
-            <br />
-            <span className="text-primary">TEAMS</span>
+          <span className="text-sm font-semibold text-[#B8860B] tracking-wide">
+            Credibility
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold text-[#0F2557] leading-tight mt-3">
+            Our Clients & Partners
           </h2>
-          <p className="text-base md:text-lg text-[#A1A1AA] mt-6 max-w-2xl mx-auto">
-            Enterprise platforms. Growing startups. Industry leaders.
+          <p className="text-base md:text-lg text-[#475569] mt-4 max-w-2xl mx-auto leading-relaxed">
+            We deliver technology solutions across diverse industries, partnering
+            with enterprises, startups, and academic institutions.
           </p>
         </motion.div>
 
-        {/* Clients Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-          {clients.map((client, index) => (
+        {/* Industry Cards Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {industries.map((industry, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="group relative border border-[#3F3F46] bg-[#09090B]/80 hover:border-primary/40 hover:bg-[#18181B] transition-all duration-500 overflow-hidden min-h-[140px] md:min-h-[160px] flex items-center justify-center"
+              variants={cardVariants}
+              className="group border border-slate-200 rounded-lg bg-white hover:shadow-md transition-all duration-300 p-6 md:p-8"
             >
-              {/* Corner accent on hover */}
-              <div className="absolute top-0 right-0 w-12 h-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute top-0 right-0 w-6 h-px bg-primary/40" />
-                <div className="absolute top-0 right-0 w-px h-6 bg-primary/40" />
-              </div>
-
-              <div className="relative text-center p-6">
-                {/* Icon */}
-                <div className="flex items-center justify-center w-12 h-12 mx-auto mb-4 border border-[#3F3F46] bg-[#18181B] group-hover:border-primary/30 group-hover:bg-primary/5 transition-all duration-300">
-                  <client.icon className="w-5 h-5 text-primary" />
+              <div className="flex items-start gap-4">
+                <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-[#0F2557]/[0.06] shrink-0 group-hover:bg-[#0F2557]/[0.1] transition-colors duration-300">
+                  <industry.icon className="w-5 h-5 text-[#0F2557]" />
                 </div>
-
-                <p className="text-sm md:text-base font-bold text-[#A1A1AA] group-hover:text-[#FAFAFA] uppercase tracking-wider transition-colors duration-300">
-                  {client.name}
-                </p>
+                <div>
+                  <h3 className="text-base font-semibold text-[#0F2557] leading-snug">
+                    {industry.name}
+                  </h3>
+                  <p className="text-sm text-[#475569] mt-1 leading-relaxed">
+                    {industry.description}
+                  </p>
+                </div>
               </div>
-
-              {/* Bottom progress line */}
-              <div className="absolute bottom-0 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-700" />
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Note */}
+        {/* Bottom Note */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-sm text-[#71717A] text-center mt-12"
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-sm text-[#64748B] text-center mt-10"
         >
-          Industries we've served. Specific client references available upon request.
+          Industries we have served. Specific client references available upon
+          request.
         </motion.p>
       </div>
     </section>

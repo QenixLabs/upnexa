@@ -3,6 +3,51 @@
 import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
+import { Mail, Phone, MapPin, MessageCircle } from "lucide-react"
+
+const contactCards = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: "info@upnexa.com",
+    href: "mailto:info@upnexa.com",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+91 (XXX) XXX-XXXX",
+    href: "tel:+91XXXXXXXXXX",
+  },
+  {
+    icon: MapPin,
+    label: "Mumbai Office",
+    value: "Mumbai, Maharashtra, India",
+    href: null,
+  },
+  {
+    icon: MapPin,
+    label: "Uttar Pradesh Office",
+    value: "Uttar Pradesh, India",
+    href: null,
+  },
+  {
+    icon: MessageCircle,
+    label: "WhatsApp",
+    value: "Chat with us on WhatsApp",
+    href: "https://wa.me/91XXXXXXXXXX",
+  },
+]
+
+const serviceOptions = [
+  "Digital Transformation",
+  "AI Automation",
+  "Cybersecurity",
+  "Digital Marketing",
+  "PR & Media",
+  "Skill Development",
+  "MSME & ODOP",
+  "Other",
+]
 
 export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -21,7 +66,9 @@ export function ContactSection() {
     const data = {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
       company: formData.get("company") as string,
+      service: formData.get("service") as string,
       message: formData.get("message") as string,
     }
 
@@ -48,7 +95,10 @@ export function ContactSection() {
     } catch (error) {
       setSubmitStatus({
         type: "error",
-        message: error instanceof Error ? error.message : "Failed to send message. Please try again.",
+        message:
+          error instanceof Error
+            ? error.message
+            : "Failed to send message. Please try again.",
       })
     } finally {
       setIsSubmitting(false)
@@ -56,9 +106,25 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-20 md:py-32">
+    <section id="contact" className="py-20 md:py-32 bg-slate-50">
       <div className="max-w-7xl xl:max-w-7xl 2xl:max-w-6xl mx-auto px-4 md:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 md:mb-16"
+        >
+          <span className="text-sm font-semibold text-[#B8860B]">
+            CONTACT
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0F2557] mt-3 mb-4">
+            Connect With Our Team
+          </h2>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column - Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -66,41 +132,63 @@ export function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-sm font-bold text-primary uppercase tracking-widest">CONTACT</span>
-            <h2 className="text-5xl sm:text-6xl md:text-7xl  font-bold uppercase tracking-tighter text-[#FAFAFA] leading-[0.9] mt-4 mb-6 md:mb-8">
-              LET'S
-              <br />
-              <span className="text-primary">TALK</span>
-            </h2>
-
-            <p className="text-base md:text-lg lg:text-xl text-[#A1A1AA] mb-8 md:mb-12 leading-tight">
-              Drop us a message. Global team. 24-hour response guarantee. No sales pitch—just real talk about your needs.
+            <p className="text-base md:text-lg text-slate-600 mb-8 md:mb-10 leading-relaxed">
+              Reach out to discuss how our strategic solutions can support your
+              organization&apos;s growth and digital transformation journey.
             </p>
 
-            {/* Contact Info */}
-            <div className="space-y-4 md:space-y-6">
-              <div className="group relative p-6 border border-[#3F3F46] bg-[#0D0D0F] hover:border-primary/30 transition-all duration-300">
-                {/* Corner brackets */}
-                <div className="absolute -top-px -left-px w-4 h-4 border-t border-l border-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute -bottom-px -right-px w-4 h-4 border-b border-r border-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center justify-center w-12 h-12 border border-primary/30 bg-primary/5">
-                    <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-xs text-[#71717A] uppercase tracking-wider mb-1">Email Us</div>
+            {/* Contact Info Cards */}
+            <div className="space-y-4">
+              {contactCards.map((card, index) => (
+                <motion.div
+                  key={card.label}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                >
+                  {card.href ? (
                     <a
-                      href="mailto:info@qenixlabs.com"
-                      className="text-base md:text-lg font-bold text-[#FAFAFA] hover:text-primary transition-colors uppercase tracking-tighter break-all"
+                      href={card.href}
+                      target={
+                        card.href.startsWith("http") ? "_blank" : undefined
+                      }
+                      rel={
+                        card.href.startsWith("http")
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
+                      className="flex items-center gap-4 border border-slate-200 rounded-lg p-5 bg-white hover:border-[#0F2557]/30 transition-colors duration-300"
                     >
-                      INFO@QENIXLABS.COM
+                      <div className="flex items-center justify-center w-11 h-11 rounded-md bg-[#0F2557]/5 shrink-0">
+                        <card.icon className="w-5 h-5 text-[#0F2557]" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-medium text-slate-500 mb-1">
+                          {card.label}
+                        </div>
+                        <div className="text-sm font-semibold text-[#0F2557]">
+                          {card.value}
+                        </div>
+                      </div>
                     </a>
-                  </div>
-                </div>
-              </div>
+                  ) : (
+                    <div className="flex items-center gap-4 border border-slate-200 rounded-lg p-5 bg-white">
+                      <div className="flex items-center justify-center w-11 h-11 rounded-md bg-[#0F2557]/5 shrink-0">
+                        <card.icon className="w-5 h-5 text-[#0F2557]" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-medium text-slate-500 mb-1">
+                          {card.label}
+                        </div>
+                        <div className="text-sm font-semibold text-[#0F2557]">
+                          {card.value}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              ))}
             </div>
           </motion.div>
 
@@ -110,28 +198,20 @@ export function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative"
           >
-            {/* Corner bracket accents */}
-            <div className="absolute -top-4 -right-4 w-16 h-16">
-              <div className="absolute top-0 right-0 w-8 h-px bg-primary/40" />
-              <div className="absolute top-0 right-0 w-px h-8 bg-primary/40" />
-            </div>
-            <div className="absolute -bottom-4 -left-4 w-16 h-16">
-              <div className="absolute bottom-0 left-0 w-8 h-px bg-primary/40" />
-              <div className="absolute bottom-0 left-0 w-px h-8 bg-primary/40" />
-            </div>
-
-            <form onSubmit={handleSubmit} className="relative border border-[#3F3F46] bg-[#09090B]/80 p-6 md:p-10 lg:p-12 hover:border-primary/40 hover:bg-[#18181B] transition-all duration-500">
-              <div className="space-y-6 md:space-y-8">
+            <form
+              onSubmit={handleSubmit}
+              className="bg-white border border-slate-200 rounded-lg p-8 md:p-10"
+            >
+              <div className="space-y-5">
                 {/* Name Input */}
                 <div>
                   <input
                     type="text"
                     name="name"
-                    placeholder="YOUR NAME"
+                    placeholder="Your Name"
                     required
-                    className="w-full h-14 md:h-16 lg:h-20 bg-transparent border-b-2 border-[#3F3F46] focus:border-primary text-lg md:text-xl lg:text-2xl font-bold uppercase tracking-tighter text-[#FAFAFA] placeholder:text-[#27272A] outline-none transition-colors px-0"
+                    className="w-full h-12 bg-slate-50 border border-slate-200 rounded-md px-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#0F2557] focus:ring-1 focus:ring-[#0F2557]/20 outline-none transition-colors"
                   />
                 </div>
 
@@ -140,9 +220,19 @@ export function ContactSection() {
                   <input
                     type="email"
                     name="email"
-                    placeholder="YOUR EMAIL"
+                    placeholder="Your Email"
                     required
-                    className="w-full h-14 md:h-16 lg:h-20 bg-transparent border-b-2 border-[#3F3F46] focus:border-primary text-lg md:text-xl lg:text-2xl font-bold uppercase tracking-tighter text-[#FAFAFA] placeholder:text-[#27272A] outline-none transition-colors px-0"
+                    className="w-full h-12 bg-slate-50 border border-slate-200 rounded-md px-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#0F2557] focus:ring-1 focus:ring-[#0F2557]/20 outline-none transition-colors"
+                  />
+                </div>
+
+                {/* Phone Input */}
+                <div>
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Your Phone"
+                    className="w-full h-12 bg-slate-50 border border-slate-200 rounded-md px-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#0F2557] focus:ring-1 focus:ring-[#0F2557]/20 outline-none transition-colors"
                   />
                 </div>
 
@@ -151,51 +241,64 @@ export function ContactSection() {
                   <input
                     type="text"
                     name="company"
-                    placeholder="YOUR COMPANY"
-                    className="w-full h-14 md:h-16 lg:h-20 bg-transparent border-b-2 border-[#3F3F46] focus:border-primary text-lg md:text-xl lg:text-2xl font-bold uppercase tracking-tighter text-[#FAFAFA] placeholder:text-[#27272A] outline-none transition-colors px-0"
+                    placeholder="Your Company"
+                    className="w-full h-12 bg-slate-50 border border-slate-200 rounded-md px-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#0F2557] focus:ring-1 focus:ring-[#0F2557]/20 outline-none transition-colors"
                   />
+                </div>
+
+                {/* Service Interest Dropdown */}
+                <div>
+                  <select
+                    name="service"
+                    className="w-full h-12 bg-slate-50 border border-slate-200 rounded-md px-4 text-sm text-slate-900 focus:border-[#0F2557] focus:ring-1 focus:ring-[#0F2557]/20 outline-none transition-colors appearance-none"
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      Service of Interest
+                    </option>
+                    {serviceOptions.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 {/* Message Textarea */}
                 <div>
                   <textarea
                     name="message"
-                    placeholder="TELL US ABOUT YOUR PROJECT"
+                    placeholder="Your Message"
                     rows={4}
                     required
-                    className="w-full bg-transparent border-b-2 border-[#3F3F46] focus:border-primary text-base md:text-lg lg:text-xl font-bold uppercase tracking-tighter text-[#FAFAFA] placeholder:text-[#27272A] outline-none transition-colors px-0 py-4 resize-none"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-md px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#0F2557] focus:ring-1 focus:ring-[#0F2557]/20 outline-none transition-colors resize-none"
                   />
                 </div>
 
                 {/* Submit Button */}
-                <motion.button
+                <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full h-14 md:h-16 lg:h-20 bg-primary text-black font-bold uppercase tracking-tighter text-base md:text-lg lg:text-xl disabled:opacity-50 hover:shadow-[0_0_40px_rgba(220,20,60,0.3)] transition-shadow duration-300"
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.99 }}
+                  className="w-full h-12 bg-[#0F2557] text-white rounded-md font-medium hover:bg-[#0C1D45] disabled:opacity-50 transition-colors duration-200"
                 >
-                  {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
-                </motion.button>
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </button>
 
                 {/* Status Messages */}
                 {submitStatus.type && (
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className={`p-4 rounded-md text-center ${
+                    className={`p-4 rounded-md text-center text-sm ${
                       submitStatus.type === "success"
-                        ? "bg-green-500/20 text-green-400 border border-green-500/50"
-                        : "bg-red-500/20 text-red-400 border border-red-500/50"
+                        ? "bg-green-50 text-green-700 border border-green-200"
+                        : "bg-red-50 text-red-700 border border-red-200"
                     }`}
                   >
                     {submitStatus.message}
                   </motion.div>
                 )}
               </div>
-
-              {/* Bottom progress line */}
-              <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-primary via-primary/50 to-transparent opacity-50" />
             </form>
           </motion.div>
         </div>

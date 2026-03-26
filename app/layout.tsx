@@ -1,57 +1,59 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Space_Grotesk, Geist_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
+import { Inter } from "next/font/google"
 import "./globals.css"
 
-const spaceGrotesk = Space_Grotesk({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700", "800"],
 })
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
 
 export const metadata: Metadata = {
-  title: "Qenix Labs | Custom Software Development & AI Automation",
-  description: "Enterprise platforms that eliminate chaos. AI agents that automate the boring stuff. Custom systems built for YOUR workflow.",
-  generator: "v0.app",
+  title: "UPNexa | Strategic Technology, Cybersecurity & Media Advisory",
+  description:
+    "We help organizations, founders and institutions accelerate growth through digital transformation, advanced cybersecurity, AI automation and strategic public relations in Uttar Pradesh and beyond.",
   keywords: [
-    "software development",
-    "AI integration",
-    "enterprise platforms",
-    "custom software",
-    "web development",
-    "mobile apps",
-    "custom software development Mumbai",
-    "AI automation agency India",
-    "enterprise software development company",
-    "software outsourcing India",
+    "technology consulting",
+    "cybersecurity advisory",
+    "digital transformation",
+    "AI automation",
+    "strategic PR",
+    "media visibility",
+    "Uttar Pradesh",
+    "brand building",
+    "business growth",
+    "MSME digital enablement",
+    "ODOP",
+    "consulting firm India",
   ],
-  authors: [{ name: "QenixLabs" }],
-  metadataBase: new URL("https://qenixlabs.com"),
+  authors: [{ name: "UPNexa" }],
+  metadataBase: new URL("https://upnexa.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "QENIXLABS | Custom Software Development & AI Automation",
-    description: "Enterprise platforms that eliminate chaos. AI agents that automate the boring stuff.",
+    title: "UPNexa | Strategic Technology, Cybersecurity & Media Advisory",
+    description:
+      "We help organizations, founders and institutions accelerate growth through digital transformation, advanced cybersecurity, AI automation and strategic public relations in Uttar Pradesh and beyond.",
     type: "website",
-    url: "https://qenixlabs.com",
-    siteName: "QenixLabs",
+    url: "https://upnexa.com",
+    siteName: "UPNexa",
     images: [
       {
-        url: "https://qenixlabs.com/og.png",
+        url: "https://upnexa.com/og.png",
         width: 1200,
         height: 630,
-        alt: "QENIXLABS - Custom Software Development & AI Automation",
+        alt: "UPNexa - Strategic Technology, Cybersecurity & Media Advisory",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "QENIXLABS | Custom Software Development & AI Automation",
-    description: "Enterprise platforms that eliminate chaos. AI agents that automate the boring stuff.",
-    images: ["https://qenixlabs.com/og.png"],
+    title: "UPNexa | Strategic Technology, Cybersecurity & Media Advisory",
+    description:
+      "We help organizations, founders and institutions accelerate growth through digital transformation, advanced cybersecurity, AI automation and strategic public relations in Uttar Pradesh and beyond.",
+    images: ["https://upnexa.com/og.png"],
   },
   robots: {
     index: true,
@@ -67,47 +69,46 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "QenixLabs",
-    description: "Enterprise platforms that eliminate chaos. AI agents that automate the boring stuff. Custom systems built for YOUR workflow.",
-    url: "https://qenixlabs.com",
-    logo: "https://qenixlabs.com/logo.png",
-    email: "info@qenixlabs.com",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Mumbai",
-      addressCountry: "IN",
-    },
-    sameAs: [
-      "https://github.com",
-      "https://linkedin.com",
+    name: "UPNexa",
+    description:
+      "Strategic technology, cybersecurity, and communications advisory firm.",
+    url: "https://upnexa.com",
+    logo: "https://upnexa.com/logo.png",
+    email: "info@upnexa.com",
+    address: [
+      {
+        "@type": "PostalAddress",
+        addressLocality: "Mumbai",
+        addressRegion: "Maharashtra",
+        addressCountry: "IN",
+      },
+      {
+        "@type": "PostalAddress",
+        addressLocality: "Azamgarh",
+        addressRegion: "Uttar Pradesh",
+        addressCountry: "IN",
+      },
     ],
+    sameAs: ["https://linkedin.com"],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",
-      email: "info@qenixlabs.com",
-      availableLanguage: "English",
+      email: "info@upnexa.com",
+      availableLanguage: ["English", "Hindi"],
     },
-    areaServed: "Worldwide",
+    areaServed: ["India", "Uttar Pradesh", "Maharashtra"],
   }
 
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${spaceGrotesk.variable} ${geistMono.variable} font-sans antialiased`}>
-        {/* Noise Texture Overlay */}
-        <svg className="noise-overlay" aria-hidden="true">
-          <filter id="noiseFilter">
-            <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch" />
-          </filter>
-          <rect width="100%" height="100%" filter="url(#noiseFilter)" />
-        </svg>
+      <body className={`${inter.variable} font-sans antialiased`}>
         {children}
-        <Analytics />
       </body>
     </html>
   )

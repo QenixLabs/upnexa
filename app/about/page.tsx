@@ -4,337 +4,269 @@ import { Navbar } from "@/components/navbar"
 import { ContactSection } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import { motion } from "framer-motion"
-import { Linkedin, ArrowRight, Zap } from "lucide-react"
 import { useRef } from "react"
 import { useInView } from "framer-motion"
+import { ShieldCheck, Lightbulb, Handshake, TrendingUp } from "lucide-react"
 
-export default function AboutPage() {
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+  },
+}
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+}
+
+const reasons = [
+  {
+    icon: ShieldCheck,
+    title: "Integrated Expertise",
+    description:
+      "We offer a unique combination of technology consulting, cybersecurity advisory, digital transformation, and strategic communications under one platform.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Regional Understanding",
+    description:
+      "Our strong understanding of the business environment in Uttar Pradesh and the Purvanchal region allows us to design solutions that are both practical and impactful for local enterprises and institutions.",
+  },
+  {
+    icon: Handshake,
+    title: "Strategic Advisory Approach",
+    description:
+      "We work as long-term advisors rather than just service providers, helping organizations build sustainable growth strategies.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Focus on Innovation & Skills",
+    description:
+      "We actively promote technology adoption, digital skills development, and entrepreneurship through training programs and institutional collaborations.",
+  },
+]
+
+function AnimatedSection({
+  children,
+  className = "",
+  delay = 0,
+}: {
+  children: React.ReactNode
+  className?: string
+  delay?: number
+}) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
-    },
-  }
-
-  const lineVariants = {
-    hidden: { scaleX: 0 },
-    visible: {
-      scaleX: 1,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
-    },
-  }
-
-  const specialistItems = [
-    { title: "Product & UX Design", icon: "○" },
-    { title: "DevOps & Cloud Infrastructure", icon: "△" },
-    { title: "Security & Compliance", icon: "□" },
-  ]
-
-  const values = [
-    {
-      title: "TRANSPARENCY",
-      description: "No black boxes. No hidden fees. You see what we see.",
-    },
-    {
-      title: "ENGINEERING FIRST",
-      description: "Built by engineers. No salespeople, no account managers.",
-    },
-    {
-      title: "OUTCOME FOCUSED",
-      description: "We care about results, not hours billed.",
-    },
-    {
-      title: "LONG-TERM PARTNERSHIPS",
-      description: "We build to last. Relationships too.",
-    },
-  ]
+  const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
-    <main className="min-h-screen bg-[#09090B]">
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] as const },
+        },
+      }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+export default function AboutPage() {
+  const heroRef = useRef(null)
+  const heroInView = useInView(heroRef, { once: true, amount: 0.3 })
+
+  return (
+    <main className="min-h-screen bg-white">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 md:pt-40 pb-16 md:pb-24 border-b-2 border-[#3F3F46]">
-        <div className="max-w-7xl xl:max-w-7xl 2xl:max-w-6xl mx-auto px-4 md:px-8">
+      <section className="pt-32 md:pt-40 pb-16 md:pb-24 border-b border-slate-200">
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
           <motion.div
+            ref={heroRef}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
           >
-            <span className="text-sm font-bold text-primary uppercase tracking-widest">ABOUT US</span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tighter text-[#FAFAFA] leading-[0.9] mt-4">
-              THE PEOPLE
-              <br />
-              <span className="text-primary">BUILDING</span>
+            <span className="text-sm font-semibold text-[#B8860B] tracking-wide">About Us</span>
+            <h1 className="text-4xl md:text-6xl font-bold text-[#0F2557] leading-tight mt-4">
+              About UPNexa
             </h1>
-            <p className="text-base md:text-lg text-[#A1A1AA] mt-6 max-w-2xl">
-              Engineer-led. Specialist network. Building the future of AI-powered business software.
+            <p className="text-lg text-slate-600 mt-6 max-w-2xl leading-relaxed">
+              A strategic technology, cybersecurity, and communications advisory firm committed to the digital and economic transformation of Uttar Pradesh.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section ref={ref} className="relative py-20 md:py-32 overflow-hidden bg-[#09090B] border-b-2 border-[#3F3F46]">
-        {/* Animated Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.02]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `
-                linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px),
-                linear-gradient(hsl(var(--primary)) 1px, transparent 1px)
-              `,
-              backgroundSize: "60px 60px",
-            }}
-          />
-        </div>
-
-        {/* Decorative Corner Elements */}
-        <div className="absolute top-0 left-0 w-32 h-32 border-l-2 border-t-2 border-primary/20" />
-        <div className="absolute bottom-0 right-0 w-32 h-32 border-r-2 border-b-2 border-primary/20" />
-
-        <div className="relative max-w-6xl mx-auto px-6 md:px-12">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="space-y-16 md:space-y-24"
-          >
-            {/* Section Label */}
-            <motion.div variants={itemVariants} className="mb-8">
-              <span className="text-sm font-bold text-primary uppercase tracking-widest">LEADERSHIP</span>
-            </motion.div>
-
-            {/* Main Heading */}
-            <motion.div variants={itemVariants} className="relative">
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tighter text-[#FAFAFA] leading-[0.85]">
-                FOUNDED & LED BY
-                <br />
-                <span className="text-primary">ENGINEERS</span>
-              </h2>
-            </motion.div>
-
-            {/* Content Grid */}
-            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
-              {/* Left Column - Main Content */}
-              <motion.div variants={itemVariants} className="lg:col-span-7 space-y-10">
-                {/* Description */}
-                <p className="text-xl md:text-2xl text-[#A1A1AA] leading-relaxed font-light">
-                  Lead Engineer & AI Integrator with <span className="text-primary font-semibold">5+ years</span> building enterprise software.
-                  <br />
-                  <br />
-                  Supported by a specialist network—Design, DevOps, Security.
-                </p>
-
-                {/* LinkedIn CTA */}
-                <motion.a
-                  href="https://linkedin.com/in/jaiswarnilesh/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-4 text-[#FAFAFA] hover:text-primary transition-colors duration-300"
-                  whileHover={{ x: 8 }}
-                >
-                  <span className="text-lg font-bold uppercase tracking-wider">Connect on LinkedIn</span>
-                  <div className="relative">
-                    <Linkedin size={20} className="relative z-10" />
-                    <motion.div
-                      className="absolute inset-0 bg-primary/20 rounded-full"
-                      initial={{ scale: 0 }}
-                      whileHover={{ scale: 1.5 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </div>
-                  <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform duration-300" />
-                </motion.a>
-              </motion.div>
-
-              {/* Right Column - Specialist Network */}
-              <motion.div variants={itemVariants} className="lg:col-span-5 relative">
-                {/* Decorative bracket */}
-                <div className="absolute -top-6 -right-6 w-12 h-12 border-r-2 border-t-2 border-primary/30" />
-
-                <div className="relative p-8 md:p-10 border border-[#3F3F46] bg-[#27272A]/50 backdrop-blur-sm">
-                  {/* Section Header */}
-                  <div className="flex items-center justify-between mb-8 pb-6 border-b border-[#3F3F46]">
-                    <span className="text-xs font-bold text-primary tracking-[0.2em] uppercase">Specialist Network</span>
-                    <Zap size={16} className="text-primary" />
-                  </div>
-
-                  {/* Specialist Items */}
-                  <ul className="space-y-6">
-                    {specialistItems.map((item, index) => (
-                      <motion.li
-                        key={index}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                        transition={{
-                          delay: 0.4 + index * 0.1,
-                          duration: 0.5,
-                          ease: [0.22, 1, 0.36, 1] as const,
-                        }}
-                        className="group flex items-center gap-4 cursor-default"
-                      >
-                        <span className="text-primary text-lg opacity-60 group-hover:opacity-100 transition-opacity duration-300">
-                          {item.icon}
-                        </span>
-                        <span className="text-lg text-[#FAFAFA] group-hover:text-primary transition-colors duration-300">
-                          {item.title}
-                        </span>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Currently Building Banner */}
-            <motion.div variants={itemVariants} className="relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative p-8 md:p-10 border border-primary/30 bg-[#27272A]">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                  <div className="flex items-center gap-6">
-                    <div className="flex items-center justify-center w-12 h-12 border border-primary/50 rounded-full">
-                      <Zap size={20} className="text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-primary tracking-[0.2em] uppercase mb-1">Currently Building</p>
-                      <p className="text-xl md:text-2xl text-[#FAFAFA] font-medium leading-tight">
-                        The future of AI-powered business software.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="hidden md:block">
-                    <p className="text-sm text-[#A1A1AA] italic">Whether you hire us or not.</p>
-                  </div>
-                </div>
-              </div>
-              <motion.div
-                className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-primary via-primary to-transparent origin-left"
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
-              />
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Company Story Section */}
-      <section className="py-20 md:py-32 border-b-2 border-[#3F3F46]">
-        <div className="max-w-7xl xl:max-w-7xl 2xl:max-w-6xl mx-auto px-4 md:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">
-            {/* Story */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="text-sm font-bold text-primary uppercase tracking-widest">OUR STORY</span>
-              <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter text-[#FAFAFA] leading-[0.9] mt-4 mb-8">
-                FOUNDED IN 2026
-                <br />
-                <span className="text-primary">WITH A MISSION</span>
-              </h2>
-              <div className="space-y-6 text-lg text-[#A1A1AA]">
-                <p>
-                  QenixLabs was born from a simple observation: businesses drowning in chaos while technology sits unused.
-                  Excel sheets replacing databases. Manual processes automatable with AI. Custom workflows forced into generic tools.
-                </p>
-                <p>
-                  We exist to fix this. Not by selling you more software—but by building what actually works for YOUR business.
-                </p>
-                <p>
-                  AI isn't a buzzword here. It's a tool we deploy when it makes sense. Same with custom platforms. Same with infrastructure.
-                  We're brutally honest about what you need.
-                </p>
-                <p className="text-[#FAFAFA] font-semibold">
-                  We take on 3-4 projects per quarter. This isn't about scaling to 100 employees. It's about doing exceptional work for clients who value excellence.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Values */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="text-sm font-bold text-primary uppercase tracking-widest">OUR VALUES</span>
-              <h3 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter text-[#FAFAFA] leading-[0.9] mt-4 mb-8">
-                WHAT WE
-                <br />
-                <span className="text-primary">STAND FOR</span>
-              </h3>
-              <div className="space-y-6">
-                {values.map((value, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="border-l-2 border-[#3F3F46] pl-6 hover:border-primary transition-colors duration-300"
-                  >
-                    <h4 className="text-xl font-bold text-primary uppercase tracking-wider mb-2">{value.title}</h4>
-                    <p className="text-base text-[#A1A1AA]">{value.description}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Current Status Banner */}
-      <section className="py-20 md:py-32 border-b-2 border-[#3F3F46]">
-        <div className="max-w-4xl mx-auto px-4 md:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center justify-center w-20 h-20 border-2 border-primary rounded-full mb-6">
-              <Zap size={32} className="text-primary" />
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter text-[#FAFAFA] leading-[0.9] mb-6">
-              CURRENTLY
-              <br />
-              <span className="text-primary">AVAILABLE</span>
+      {/* Section 1: Who We Are */}
+      <section className="py-20 md:py-28 border-b border-slate-200">
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <AnimatedSection>
+            <span className="text-sm font-semibold text-[#B8860B] tracking-wide">Who We Are</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F2557] leading-snug mt-4 mb-10">
+              Strategic Advisory for the Digital Economy
             </h2>
-            <p className="text-xl md:text-2xl text-[#A1A1AA] mb-8">
-              We take on 3-4 new projects per quarter to ensure quality delivery.
-              <br />
-              Spaces fill up quickly.
+          </AnimatedSection>
+          <AnimatedSection delay={0.15}>
+            <div className="space-y-6 text-lg text-slate-600 leading-relaxed max-w-4xl">
+              <p>
+                We are a strategic technology, cybersecurity, and communications advisory firm committed to supporting organizations, entrepreneurs, and institutions in navigating the evolving digital economy.
+              </p>
+              <p>
+                With a strong presence in Uttar Pradesh and Mumbai, our firm focuses on enabling businesses to adopt modern technologies, strengthen cybersecurity resilience, and build credible market presence through strategic communications.
+              </p>
+              <p>
+                Our work is particularly aligned with the emerging opportunities across Uttar Pradesh&apos;s rapidly growing digital and entrepreneurial ecosystem, where traditional industries, startups, and institutions are increasingly embracing innovation and digital transformation.
+              </p>
+              <p>
+                By combining expertise in technology consulting, cybersecurity advisory, digital transformation, and public relations, we provide integrated solutions that help organizations operate securely, grow sustainably, and build lasting credibility.
+              </p>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Section 2: Our Vision (Dark Navy Contrast) */}
+      <section className="py-20 md:py-28 bg-[#0F2557]">
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainer}
+            className="space-y-8"
+          >
+            <motion.div variants={fadeInUp}>
+              <span className="text-sm font-semibold text-[#B8860B] tracking-wide">Our Vision</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-white leading-snug mt-4 mb-10">
+                Empowering Regional Enterprises on a Global Stage
+              </h2>
+            </motion.div>
+            <motion.div variants={fadeInUp} className="space-y-6 text-lg text-slate-300 leading-relaxed max-w-4xl">
+              <p>
+                To become a leading strategic advisory firm contributing to the digital and economic transformation of Uttar Pradesh, by empowering businesses, institutions, and entrepreneurs with technology, cybersecurity expertise, and global market visibility.
+              </p>
+              <p>
+                We envision a future where regional enterprises and emerging entrepreneurs from cities like Azamgarh and across Purvanchal are able to compete confidently in national and international markets through innovation, digital capabilities, and strong brand reputation.
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Section 3: Our Mission */}
+      <section className="py-20 md:py-28 border-b border-slate-200">
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <AnimatedSection>
+            <span className="text-sm font-semibold text-[#B8860B] tracking-wide">Our Mission</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F2557] leading-snug mt-4 mb-10">
+              Enabling Growth in the Digital Economy
+            </h2>
+          </AnimatedSection>
+          <AnimatedSection delay={0.15}>
+            <div className="space-y-6 text-lg text-slate-600 leading-relaxed max-w-4xl">
+              <p>
+                Our mission is to enable organizations and entrepreneurs to grow in the digital economy by providing practical, impactful solutions across technology, cybersecurity, automation, and strategic communications.
+              </p>
+              <p>
+                We aim to support regional development by helping businesses modernize operations, protect their digital assets, and access wider markets through digital platforms and media visibility.
+              </p>
+              <p>
+                Our initiatives also align with development programs such as One District One Product, which promotes district-specific industries and local entrepreneurship across the state.
+              </p>
+              <p>
+                Through training programs, advisory services, and technology solutions, we work to bridge the gap between traditional industries and modern digital opportunities.
+              </p>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Section 4: Why Choose Us */}
+      <section className="py-20 md:py-28 border-b border-slate-200 bg-[#F8FAFC]">
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <AnimatedSection>
+            <span className="text-sm font-semibold text-[#B8860B] tracking-wide">Why Choose Us</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F2557] leading-snug mt-4 mb-4">
+              Organizations Partner With Us
+            </h2>
+            <p className="text-lg text-slate-600 mb-14 max-w-2xl">
+              Because we combine technology expertise with strategic business understanding.
             </p>
-            <motion.a
-              href="/#contact"
-              className="inline-flex items-center justify-center h-14 px-12 bg-primary text-black font-bold uppercase tracking-tighter text-lg hover:scale-105 active:scale-95 transition-transform"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              WORK WITH US
-            </motion.a>
+          </AnimatedSection>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-2 gap-6"
+          >
+            {reasons.map((reason, index) => {
+              const Icon = reason.icon
+              return (
+                <motion.div
+                  key={index}
+                  variants={fadeInUp}
+                  className="border border-slate-200 rounded-lg bg-white p-8 hover:shadow-lg transition-shadow duration-300"
+                >
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="flex items-center justify-center w-11 h-11 rounded-lg bg-[#0F2557]/5">
+                      <Icon className="w-5 h-5 text-[#0F2557]" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-[#0F2557]">{reason.title}</h3>
+                  </div>
+                  <p className="text-slate-600 leading-relaxed">{reason.description}</p>
+                </motion.div>
+              )
+            })}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Section 5: Our Commitment to Uttar Pradesh */}
+      <section className="py-20 md:py-28 bg-[#0F2557]">
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainer}
+            className="space-y-8"
+          >
+            <motion.div variants={fadeInUp}>
+              <span className="text-sm font-semibold text-[#B8860B] tracking-wide">Our Commitment</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-white leading-snug mt-4 mb-10">
+                Committed to Uttar Pradesh
+              </h2>
+            </motion.div>
+            <motion.div variants={fadeInUp} className="space-y-6 text-lg text-slate-300 leading-relaxed max-w-4xl">
+              <p>
+                Uttar Pradesh is witnessing significant growth in entrepreneurship, digital adoption, and infrastructure development.
+              </p>
+              <p>
+                Our firm is committed to supporting this transformation by enabling businesses, educational institutions, and emerging entrepreneurs to leverage modern technologies, improve cybersecurity resilience, and build strong brand credibility.
+              </p>
+              <p>
+                By connecting regional enterprises with digital tools, automation, and strategic communications, we aim to contribute to the creation of a more innovative, secure, and globally competitive business ecosystem in Uttar Pradesh.
+              </p>
+            </motion.div>
           </motion.div>
         </div>
       </section>
